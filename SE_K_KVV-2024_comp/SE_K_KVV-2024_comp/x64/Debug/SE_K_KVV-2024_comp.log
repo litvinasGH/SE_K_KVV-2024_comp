@@ -1,0 +1,19 @@
+﻿Сборка начата 11.12.2024 15:06:09.
+Уровень детализации журнала: Normal.     1>Проект "C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp.vcxproj" в узле 2 (целевые объекты Build).
+     1>PrepareForBuild:
+         Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+         Создание каталога "C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\x64\Debug\".
+         Создание каталога "x64\Debug\SE_K_KVV.9980ceef.tlog\".
+       InitializeBuildStatus:
+         Создание "x64\Debug\SE_K_KVV.9980ceef.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "x64\Debug\SE_K_KVV.9980ceef.tlog\unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\HostX64\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"x64\Debug\\" /Fd"x64\Debug\vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt Error.cpp FST.cpp GRB.cpp In.cpp IT.cpp Log.cpp LT.cpp main.cpp MFST.cpp Out.cpp Parm.cpp
+         Error.cpp
+     1>Сборка проекта "C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp.vcxproj" завершена (целевые объекты Build) с ошибкой.
+
+Ошибка сборки.
+    Предупреждений: 0
+    Ошибок: 0
+
+Прошло времени 00:00:02.22
