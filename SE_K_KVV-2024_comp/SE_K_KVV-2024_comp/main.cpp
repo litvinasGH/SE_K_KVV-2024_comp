@@ -98,6 +98,33 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		mfst.printrules(log);
 
+
+		int pos = 0;
+		for (int i = 0; i <= lextable.size; i++) {
+			if (lextable.table[i].lexema == '=') {
+				pos = i + 1;
+				break;
+			}
+		}
+		
+
+
+		std::cout << "28<<: польская запись построена" << std::endl;
+		// заполнение таблиц lextable и idtable см. лаб. 14
+
+		if (PolishNotation(pos, lextable, idtable)) {
+			std::cout << "EXP1<<: польская запись построена" << std::endl;
+		}
+		else {
+			std::cout << "EXP1<<: польская запись не построена" << std::endl;
+		}
+
+
+
+
+
+
+
 		IT::Delete(idtable);
 		LT::Delete(lextable);
 		In::Delete(in);
