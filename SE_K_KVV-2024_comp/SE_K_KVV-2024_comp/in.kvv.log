@@ -2,7 +2,7 @@
 Тест без ошибок 
 
 --—- Протокол ——--
-Дата: 13.12.24 12:27:00
+Дата: 13.12.24 17:09:22
 --—- Параметры ——--
  -in: 	in.kvv
  -out:	in.kvv.out
@@ -48,3 +48,137 @@ print strlen(sc);
 return 0;
 };
 
+
+--—- Представления кода в виде лексем ——-- 
+
+01 tfi|1|(ti|2|,ti|3|)
+02 {
+03 dti|4|;
+04 i|4|=i|2|&(i|2||i|3|);
+05 ri|4|;
+06 };
+07 tfi|5|(ti|6|,ti|7|)
+08 {
+09 dti|8|;
+10 dtfi|9|(ti|10|,ti|11|,
+11 ti|12|);
+12 i|8|=i|9|(i|10|,l,l)&i|7|;
+13 ri|8|;
+14 };
+15 m
+16 {
+17 dti|15|;
+18 dti|16|;
+19 dti|17|;
+20 dti|18|;
+21 dti|19|;
+22 dti|20|;
+23 dtfi|21|(ti|22|);
+24 i|15|=l;
+25 i|16|=l;
+26 i|18|=l;
+27 i|19|=l;
+28 i|17|=i|1|(i|15|,i|16|);
+29 i|20|=i|5|(i|18|,i|19|);
+30 pl;
+31 pi|17|;
+32 pi|20|;
+33 pi|21|(i|20|);
+34 rl;
+35 };
+--—------------------------------------------- Идентификаторы ---------------------------------------——-- 
+|  Номер  |    id    | Тип данных |    Тип    | Связь (Номер Лексема Строка) | Стек            | Значение?
+---------------------------------------------------------------------------------------------------------
+| 0000001 |       fi |        int |      func |         3        i        1  | 0GLOBAL  | 
+| 0000002 |        x |        int |     param |         6        i        1  | fi 0GLOBAL  | 
+| 0000003 |        y |        int |     param |         9        i        1  | fi 0GLOBAL  | 
+| 0000004 |        z |        int |  variable |        14        i        3  | fi 0GLOBAL  | 
+| 0000005 |       fs |        str |      func |        33        i        7  | 0GLOBAL  | 
+| 0000006 |        a |        str |     param |        36        i        7  | fs 0GLOBAL  | 
+| 0000007 |        b |        str |     param |        39        i        7  | fs 0GLOBAL  | 
+| 0000008 |        c |        str |  variable |        44        i        9  | fs 0GLOBAL  | 
+| 0000009 |   substr |        str |  variable |        49        i       10  | fs 0GLOBAL  | 
+| 0000010 |        a |        str |     param |        52        i       10  | fs 0GLOBAL  | 
+| 0000011 |        p |        int |     param |        55        i       10  | fs 0GLOBAL  | 
+| 0000012 |        n |        int |     param |        58        i       11  | fs 0GLOBAL  | 
+| 0000013 |     INT0 |        int |       lit |        67        l       12  | 0GLOBAL  | 1 
+| 0000014 |     INT1 |        int |       lit |        69        l       12  | 0GLOBAL  | 3 
+| 0000015 |        x |        int |  variable |        83        i       17  | MAIN 0GLOBAL  | 
+| 0000016 |        y |        int |  variable |        87        i       18  | MAIN 0GLOBAL  | 
+| 0000017 |        z |        int |  variable |        91        i       19  | MAIN 0GLOBAL  | 
+| 0000018 |       sa |        str |  variable |        95        i       20  | MAIN 0GLOBAL  | 
+| 0000019 |       sb |        str |  variable |        99        i       21  | MAIN 0GLOBAL  | 
+| 0000020 |       sc |        str |  variable |       103        i       22  | MAIN 0GLOBAL  | 
+| 0000021 |   strlen |        int |  variable |       108        i       23  | MAIN 0GLOBAL  | 
+| 0000022 |        p |        str |     param |       111        i       23  | MAIN 0GLOBAL  | 
+| 0000023 |     INT2 |        int |       lit |       116        l       24  | 0GLOBAL  | 1 
+| 0000024 |     INT3 |        int |       lit |       120        l       25  | 0GLOBAL  | 5 
+| 0000025 |     STR4 |        str |       lit |       124        l       26  | 0GLOBAL  | 10 '1234567890' 
+| 0000026 |     STR5 |        str |       lit |       149        l       30  | 0GLOBAL  | 20 'контрольный   пример' 
+| 0000027 |     INT6 |        int |       lit |       164        l       34  | 0GLOBAL  | 0 
+---------------------------------------------------------------------------------------------------------
+
+----------Правила-----------
+0   : S->tfi(F){NrE;};S   
+4   : F->ti,F             
+7   : F->ti               
+11  : N->dti;N            
+15  : N->i=E;             
+17  : E->iM               
+18  : M->&E               
+19  : E->(E)              
+20  : E->iM               
+21  : M->|E               
+22  : E->i                
+26  : E->i                
+30  : S->tfi(F){NrE;};S   
+34  : F->ti,F             
+37  : F->ti               
+41  : N->dti;N            
+45  : N->dtfi(F);N        
+50  : F->ti,F             
+53  : F->ti,F             
+56  : F->ti               
+60  : N->i=E;             
+62  : E->i(W)M            
+64  : W->i,W              
+66  : W->l,W              
+68  : W->l                
+70  : M->&E               
+71  : E->i                
+74  : E->i                
+78  : S->m{NrE;};         
+80  : N->dti;N            
+84  : N->dti;N            
+88  : N->dti;N            
+92  : N->dti;N            
+96  : N->dti;N            
+100 : N->dti;N            
+104 : N->dtfi(F);N        
+109 : F->ti               
+113 : N->i=E;N            
+115 : E->l                
+117 : N->i=E;N            
+119 : E->l                
+121 : N->i=E;N            
+123 : E->l                
+125 : N->i=E;N            
+127 : E->l                
+129 : N->i=E;N            
+131 : E->i(W)             
+133 : W->i,W              
+135 : W->i                
+138 : N->i=E;N            
+140 : E->i(W)             
+142 : W->i,W              
+144 : W->i                
+147 : N->pE;N             
+148 : E->l                
+150 : N->pE;N             
+151 : E->i                
+153 : N->pE;N             
+154 : E->i                
+156 : N->pE;              
+157 : E->i(W)             
+159 : W->i                
+163 : E->l                

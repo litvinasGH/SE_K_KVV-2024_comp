@@ -12,17 +12,18 @@
 #define EXP2 50 
 #define EXP3 66 
 
+namespace PLN {
 
 
 
+    void findN(LT::LexTable& lextable, IT::IdTable& idtable);
 
-
-
-bool PolishNotation( 
-    int lextable_pos,
-    LT::LexTable& lextable, 
-    IT::IdTable& idtable     
-);
+    bool PolishNotation(
+        int lextable_pos,
+        LT::LexTable& lextable,
+        IT::IdTable& idtable
+    );
+}
 
 
 

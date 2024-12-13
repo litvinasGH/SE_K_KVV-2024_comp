@@ -106,21 +106,53 @@ namespace Log
 				*log.stream << std::setfill('0') << std::setw(size) << str << ' ';
 				cout << std::setfill('0') << std::setw(size) << str << ' ';
 			}
-			if (lextable.table[i].lexema == 'i') {
-				*log.stream << lextable.table[i].lexema << '|' << lextable.table[i].idxTI  + 1 << '|';
-				cout << lextable.table[i].lexema << '|' << lextable.table[i].idxTI + 1 << '|';
-			}
-			else {
+			switch (lextable.table[i].lexema)
+			{
+			case 'i':
+				*log.stream << lextable.table[i].lexema << '|' << lextable.table[i].idxTI + 1 << '|';
+				cout << lextable.table[i].lexema << "\033[93m|\033[0m" << lextable.table[i].idxTI + 1 << "\033[93m|\033[0m";
+				break;
+			case '$':
+				*log.stream << lextable.table[i].lexema;
+				cout << "\033[93m" << lextable.table[i].lexema << "\033[0m";
+				break;
+			default:
 				*log.stream << lextable.table[i].lexema;
 				cout << lextable.table[i].lexema;
+				break;
 			}
 		}
-		(*log.stream) << "\n--—------------------------------------------- Идентификаторы ---------------------------------------——-- " << endl;
-		cout << "\n---------------------------------------------------------------------------------------------------------" << endl;
-		cout << "|  Номер  |    id    | Тип данных |    Тип    | Связь (Номер Лексема Строка) | Стек            | Значение?" << endl;
-		cout << "---------------------------------------------------------------------------------------------------------" << endl;
-		(*log.stream) << "|  Номер  |    id    | Тип данных |    Тип    | Связь (Номер Лексема Строка) | Стек            | Значение?" << endl;
-		(*log.stream) << "---------------------------------------------------------------------------------------------------------" << endl;
+		int maxl = 7;
+		string st;
+		for (int i = 0; i < idtable.size; i++) {
+			st.clear();
+			if (!idtable.table[i].funcID.empty()) {
+				/*cout << std::setw(0);
+				(*log.stream) << std::setw(0);*/
+				std::stack<char*> tempStack = idtable.table[i].funcID;
+				while (!tempStack.empty()) {
+					char* top = tempStack.top();
+					st += top;
+					st += " -> ";
+					tempStack.pop();
+				}
+				if (st.length() > maxl) {
+					maxl = st.length();
+				}
+			}
+			else {
+				cout << std::setw(14) << "empty";
+				(*log.stream) << std::setw(14) << "empty";
+			}
+		}
+		(*log.stream) << "\n--—------------------------------------------- Идентификаторы ---------------------------------------——-----------------" << endl;
+		cout << "\n---------------------------------------------------------------------------------------------------------------------------------" << endl;
+		cout << "|  Номер  |    id    | Тип данных |    Тип    | Связь (Номер Лексема Строка) |" << right << std::setfill(' ') <<
+			setw(maxl) << "Стек" << "  | Значение ? " << endl;
+		cout << "-----------------------------------------------------------------------------------------------------------------------------------" << endl;
+		(*log.stream) << "|  Номер  |    id    | Тип данных |    Тип    | Связь (Номер Лексема Строка) |" << right << std::setfill(' ') <<
+			setw(maxl) << "Стек" << "  | Значение ? " << endl;
+		(*log.stream) << "-------------------------------------------------------------------------------------------------------------------------" << endl;
 
 		for (int i = 0; i < idtable.size; i++) {
 			cout << "| " << std::setfill('0') << std::setw(7) << i + 1 << " | ";
@@ -164,20 +196,24 @@ namespace Log
 			(*log.stream) << std::setw(9) << idtable.table[i].idxfirstLE + 1 << std::setw(9) << en.lexema << std::setw(9) << en.sn + 1 << "  | ";
 
 			// Вывод содержимого стека
+			st.clear();
 			if (!idtable.table[i].funcID.empty()) {
-				cout << std::setw(0);
-				(*log.stream) << std::setw(0);
+				/*cout << std::setw(0);
+				(*log.stream) << std::setw(0);*/
 				std::stack<char*> tempStack = idtable.table[i].funcID;
 				while (!tempStack.empty()) {
 					char* top = tempStack.top();
-					cout << top << " ";
-					(*log.stream) << top << " ";
+					st += top;
 					tempStack.pop();
+					if (!tempStack.empty())
+						st += " -> ";
 				}
+				cout << std::setw(maxl) << st;
+				(*log.stream) << std::setw(maxl) << st;
 			}
 			else {
-				cout << std::setw(14) << "empty";
-				(*log.stream) << std::setw(14) << "empty";
+				cout << std::setw(maxl) << "empty";
+				(*log.stream) << std::setw(maxl) << "empty";
 			}
 			cout << " | ";
 			(*log.stream) << " | ";
