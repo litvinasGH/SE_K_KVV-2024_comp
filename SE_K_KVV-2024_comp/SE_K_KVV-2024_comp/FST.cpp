@@ -695,7 +695,7 @@ namespace FST
 								throw ERROR_THROW_LEX(95, str, in.words[i], (unsigned char*)ret);
 							}
 							LT::Add(lextable, { 'i', str, idtable.size });
-							IT::Add(idtable, { lextable.size - 1,(char*)in.words[i], datatypeIT, IT::V, funcID});
+							IT::Add(idtable, { lextable.size - 1,(char*)in.words[i], datatypeIT, IT::F, funcID});
 							ret[symbols++] = 'i';
 						}
 						else {

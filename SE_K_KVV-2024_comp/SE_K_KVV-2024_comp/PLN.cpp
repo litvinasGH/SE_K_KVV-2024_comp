@@ -33,7 +33,12 @@ namespace PLN {
 
         for (int i = 0; i <= length; i++) {
             if (std::isalnum(expression.table[i].lexema)) {
-                LT::Add(output, expression.table[i]);
+                if (idtable.table[expression.table[i].idxTI].idtype == IT::F) {
+                    stack.push(expression.table[i]);
+                }
+                else {
+                    LT::Add(output, expression.table[i]);
+                }
             }
             else if (expression.table[i].lexema == '(') {
                 stack.push(expression.table[i]);

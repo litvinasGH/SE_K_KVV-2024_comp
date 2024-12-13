@@ -88,7 +88,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		LT::LexTable lextable = LT::Create(in.count_words); 
 		IT::IdTable idtable = IT::Create(in.count_words);
 		FST::GetLexOrID(in, lextable, idtable);
-		Log::WriteLex(log, lextable, idtable);
+		if (parm.deb) {
+			Log::WriteLex(log, lextable, idtable);
+		}
 
 		MFST_TRACE_START
 			MFST::Mfst mfst(lextable, GRB::getGreibach());
@@ -96,18 +98,21 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		mfst.savededucation();
 
-		mfst.printrules(log);
+		if (parm.deb) {
+			mfst.printrules(log);
+		}
 
 
 		
 		
 
 		PLN::findN(lextable, idtable);
+		if (parm.deb) {
 		std::cout << "28<<: польская запись построена" << std::endl;
 
 
-		Log::WriteLex(log, lextable, idtable);
-
+			Log::WriteLex(log, lextable, idtable);
+		}
 
 
 

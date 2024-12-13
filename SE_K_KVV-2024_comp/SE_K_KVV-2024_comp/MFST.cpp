@@ -158,9 +158,11 @@ namespace MFST
         case LENTA_END:
         {
             MFST_TRACE4("------>LENTA_END")
-                cout << "------------------------------------------------------------------------------------------------\n";
-            sprintf_s(buf, MFST_DIAGN_MAXSIZE, "%d: все строки %d, синтаксический анализ выполнен успешно", 0, lex.table[lex.size - 1].sn + 1);
-            cout << setw(4) << left << 0 << "все строки " << lex.table[lex.size - 1].sn + 1 << ", синтаксический анализ выполнен успешно\n";
+                if (deb) {
+                    cout << "------------------------------------------------------------------------------------------------\n";
+                    sprintf_s(buf, MFST_DIAGN_MAXSIZE, "%d: все строки %d, синтаксический анализ выполнен успешно", 0, lex.table[lex.size - 1].sn + 1);
+                    cout << setw(4) << left << 0 << "все строки " << lex.table[lex.size - 1].sn + 1 << ", синтаксический анализ выполнен успешно\n";
+                }
             rc = true;
             break;
         }
@@ -168,7 +170,9 @@ namespace MFST
         case NS_NORULE:
         {
             MFST_TRACE4("------>NS_NORULE")
-                cout << "------------------------------------------------------------------------------------------------\n";
+                if (deb) {
+                    cout << "------------------------------------------------------------------------------------------------\n";
+                }
             cout << getDiagnosis(0, buf, log) << endl;
             cout << getDiagnosis(1, buf, log) << endl;
             cout << getDiagnosis(2, buf, log) << endl;

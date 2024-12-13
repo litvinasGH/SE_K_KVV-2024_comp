@@ -85,6 +85,8 @@ namespace Log
 			in.text << endl;
 	};
 
+
+
 	void WriteLex(LOG log, LT::LexTable lextable, IT::IdTable idtable) {
 		int str = 0;
 		int size = [](int number) -> int {
@@ -114,7 +116,7 @@ namespace Log
 				break;
 			case '$':
 				*log.stream << lextable.table[i].lexema;
-				cout << "\033[93m" << lextable.table[i].lexema << "\033[0m";
+				cout << "\033[31m" << lextable.table[i].lexema << "\033[0m";
 				break;
 			default:
 				*log.stream << lextable.table[i].lexema;
@@ -147,16 +149,16 @@ namespace Log
 		}
 		(*log.stream) << "\n--—------------------------------------------- Идентификаторы ---------------------------------------——-----------------" << endl;
 		cout << "\n---------------------------------------------------------------------------------------------------------------------------------" << endl;
-		cout << "|  Номер  |    id    | Тип данных |    Тип    | Связь (Номер Лексема Строка) |" << right << std::setfill(' ') <<
-			setw(maxl) << "Стек" << "  | Значение ? " << endl;
+		cout << "|  Номер  |    id    | Тип данных |     Тип     | Связь (Номер Лексема Строка) |" << right << std::setfill(' ') <<
+			setw(maxl) << "Видемость" << "  | Значение ? " << endl;
 		cout << "-----------------------------------------------------------------------------------------------------------------------------------" << endl;
-		(*log.stream) << "|  Номер  |    id    | Тип данных |    Тип    | Связь (Номер Лексема Строка) |" << right << std::setfill(' ') <<
-			setw(maxl) << "Стек" << "  | Значение ? " << endl;
+		(*log.stream) << "|  Номер  |    id    | Тип данных |     Тип     | Связь (Номер Лексема Строка) |" << right << std::setfill(' ') <<
+			setw(maxl) << "Видемость" << "  | Значение ? " << endl;
 		(*log.stream) << "-------------------------------------------------------------------------------------------------------------------------" << endl;
 
 		for (int i = 0; i < idtable.size; i++) {
-			cout << "| " << std::setfill('0') << std::setw(7) << i + 1 << " | ";
-			(*log.stream) << "| " << std::setfill('0') << std::setw(7) << i + 1 << " | ";
+			cout << "| " <<  std::setw(7) << i + 1 << " | ";
+			(*log.stream) << "| " << std::setw(7) << i + 1 << " | ";
 
 			cout << std::setfill(' ') << std::setw(8) << idtable.table[i].id << " | ";
 			(*log.stream) << std::setfill(' ') << std::setw(8) << idtable.table[i].id << " | ";
@@ -174,20 +176,20 @@ namespace Log
 
 			switch (idtable.table[i].idtype) {
 			case IT::F:
-				cout << std::setw(9) << "func" << " | ";
-				(*log.stream) << std::setw(9) << "func" << " | ";
+				cout << std::setw(11) << "функция" << " | ";
+				(*log.stream) << std::setw(11) << "функция" << " | ";
 				break;
 			case IT::L:
-				cout << std::setw(9) << "lit" << " | ";
-				(*log.stream) << std::setw(9) << "lit" << " | ";
+				cout << std::setw(11) << "литерал" << " | ";
+				(*log.stream) << std::setw(11) << "литерал" << " | ";
 				break;
 			case IT::P:
-				cout << std::setw(9) << "param" << " | ";
-				(*log.stream) << std::setw(9) << "param" << " | ";
+				cout << std::setw(11) << "параметр" << " | ";
+				(*log.stream) << std::setw(11) << "параметр" << " | ";
 				break;
 			case IT::V:
-				cout << std::setw(9) << "variable" << " | ";
-				(*log.stream) << std::setw(9) << "variable" << " | ";
+				cout << std::setw(11) << "переменная" << " | ";
+				(*log.stream) << std::setw(11) << "переменная" << " | ";
 				break;
 			}
 
