@@ -97,12 +97,34 @@ namespace FST
 		return (rc ? (fst.rstates[fst.nstates - 1] == lstring) : rc);
 	}
 
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="word"></param>
-	/// <returns>s = litstr; i = litint; I = ID</returns>
+	
+	
+	
+	
+	
 	int GetID(char* word) {
+		FST Tlex(
+			(char*)word,
+			5,
+			NODE(1, RELATION('t', 1)),
+			NODE(1, RELATION('r', 2)),
+			NODE(1, RELATION('u', 3)),
+			NODE(1, RELATION('e', 4)),
+			NODE()
+		);
+		FST Flex(
+			(char*)word,
+			6,
+			NODE(1, RELATION('f', 1)),
+			NODE(1, RELATION('a', 2)),
+			NODE(1, RELATION('l', 3)),
+			NODE(1, RELATION('s', 4)),
+			NODE(1, RELATION('e', 5)),
+			NODE()
+		);
+		if (execute(Tlex) || execute(Flex))
+			return 'b';
+
 		FST strLit(
 			word,
 			4,
@@ -323,6 +345,9 @@ namespace FST
 		if (execute(iLex)) {
 			return 'I';
 		}
+
+
+		return 0;
 	}
 
 	char GetLex(char* word) {
@@ -417,6 +442,8 @@ namespace FST
 		if (execute(Rlex))
 			return LEX_RETURN;
 
+		return 0;
+
 	}
 	bool check_int(char* word) {
 		FST integer_au(
@@ -438,11 +465,38 @@ namespace FST
 	}
 
 
+
+	bool compareStacks(std::stack<char*> s1, std::stack<char*> s2) {
+		if (s1.size() != s2.size()) {
+			return false;
+		}
+
+		while (!s1.empty()) {
+			if (strcmp(s1.top(), s2.top()) != 0) {
+				return false;
+			}
+			s1.pop();
+			s2.pop();
+		}
+
+		return true; 
+	}
+
+	bool test(IT::IdTable idtable, char* word ,std::stack<char*> func) {
+		for (int k = idtable.size - 1; k >= 0; k--) {
+			if (!strcmp(IT::GetEntry(idtable, k).id, word) && compareStacks(IT::GetEntry(idtable, k).funcID, func))
+			{
+				return true;
+			}
+		}
+		return false;
+
+	}
+
 	void GetLexOrID(In::IN in, LT::LexTable& lextable, IT::IdTable& idtable) {
 		char* ret = new char[LT_MAXSIZE];
 		int symbols = 0;
-		const char constlex[] = ";,{}()=";
-		const char vlex[] = "+-*////";
+		const char constlex[] = ";,{}()=|&!^";
 		int str = 1;
 		int id = 0;
 		int lastid = 0;
@@ -450,12 +504,14 @@ namespace FST
 		ret[symbols++] = (str % 10) + '0';
 		ret[symbols++] = ' ';
 		str = 0;
+		stack<char*> funcID;
+		funcID.push((char*)"0GLOBAL");
 		bool param = false, func = false;
 		for (int i = 0; i < in.count_words - 1; i++) {
 			if (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0') {
 				continue;
 			}
-			if (in.words[i][0] == '|') {
+			if (in.words[i][0] == '\n') {
 				ret[symbols++] = '\n';
 				str++;
 				ret[symbols++] = (str / 10) + '0';
@@ -468,16 +524,10 @@ namespace FST
 				throw ERROR_THROW(60);
 			}
 			bool flag = false;
-			for (int j = 0; j < 7; j++) {
+			for (int j = 0; j < 12; j++) {
 				if (in.words[i][0] == constlex[j]) {
 					ret[symbols++] = in.words[i][0];
 					LT::Add(lextable, { (char)in.words[i][0], str, NULL });
-					flag = true;
-					break;
-				}
-				else if (in.words[i][0] == vlex[j]) {
-					ret[symbols++] = 'v';
-					LT::Add(lextable, { 'v', str, NULL });
 					flag = true;
 					break;
 				}
@@ -497,6 +547,7 @@ namespace FST
 					break;
 				case '}':
 					func = false;
+					funcID.pop();
 					break;
 				}
 				continue;
@@ -512,14 +563,14 @@ namespace FST
 				datatypeIT = check_int((char*)in.words[i]) ? IT::INT : IT::STR;
 				do {
 					i++;
-					if (in.words[i][0] == '|') {
+					if (in.words[i][0] == '\n') {
 						ret[symbols++] = '\n';
 						str++;
 						ret[symbols++] = (str / 10) + '0';
 						ret[symbols++] = (str % 10) + '0';
 						ret[symbols++] = ' ';
 					}
-				} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '|');
+				} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '\n');
 				
 				if (GetLex((char*)in.words[i]) == LEX_FUNCTION)
 				{
@@ -527,14 +578,14 @@ namespace FST
 					ret[symbols++] = 'f';
 					do {
 						i++;
-						if (in.words[i][0] == '|') {
+						if (in.words[i][0] == '\n') {
 							ret[symbols++] = '\n';
 							str++;
 							ret[symbols++] = (str / 10) + '0';
 							ret[symbols++] = (str % 10) + '0';
 							ret[symbols++] = ' ';
 						}
-					} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '|');
+					} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '\n');
 					if (GetID((char*)in.words[i]) == 'I') {
 						while (in.words[i][leng++] != '\0');
 						if (leng > ID_MAXSIZE) {
@@ -545,14 +596,19 @@ namespace FST
 							ret[symbols] = '\0';
 							throw ERROR_THROW(66);
 						}
+						if (test(idtable, (char*)in.words[i], funcID)) {
+							ret[symbols] = '\0';
+							throw ERROR_THROW_LEX(95, str, in.words[i], (unsigned char*)ret);
+						}
 						LT::Add(lextable, { 'i', str, idtable.size });
-						IT::Add(idtable, { lextable.size - 1,(char*)in.words[i], datatypeIT, IT::F });
+						IT::Add(idtable, { lextable.size - 1,(char*)in.words[i], datatypeIT, IT::F, funcID});
+						funcID.push((char*)in.words[i]);
 						ret[symbols++] = 'i';
 					}
 					else {
 						ret[symbols] = '\0';
 
-						throw ERROR_THROW_LEX(90, str, in.words[i], (unsigned char*)ret);
+						throw ERROR_THROW_LEX(93, str, in.words[i], (unsigned char*)ret);
 					}
 				}
 				else if (GetID((char*)in.words[i]) == 'I') {
@@ -565,14 +621,18 @@ namespace FST
 						ret[symbols] = '\0';
 						throw ERROR_THROW(66);
 					}
+					/*if (test(idtable, (char*)in.words[i], funcID)) {
+						ret[symbols] = '\0';
+						throw ERROR_THROW_LEX(96, str, in.words[i], (unsigned char*)ret);
+					}*/
 					LT::Add(lextable, { 'i', str, idtable.size });
-					IT::Add(idtable, { lextable.size - 1,(char*)in.words[i], datatypeIT, IT::P });
+					IT::Add(idtable, { lextable.size - 1,(char*)in.words[i], datatypeIT, IT::P, funcID});
 					ret[symbols++] = 'i';
 				}
 				else {
 					ret[symbols] = '\0';
 
-					throw ERROR_THROW_LEX(90, str, in.words[i], (unsigned char*)ret);
+					throw ERROR_THROW_LEX(93, str, in.words[i], (unsigned char*)ret);
 				}
 				continue;
 				break;
@@ -581,14 +641,14 @@ namespace FST
 				ret[symbols++] = 'd';
 				do {
 					i++;
-					if (in.words[i][0] == '|') {
+					if (in.words[i][0] == '\n') {
 						ret[symbols++] = '\n';
 						str++;
 						ret[symbols++] = (str / 10) + '0';
 						ret[symbols++] = (str % 10) + '0';
 						ret[symbols++] = ' ';
 					}
-				} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '|');
+				} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '\n');
 
 
 				if (GetLex((char*)in.words[i]) == LEX_INTEGER) {
@@ -597,14 +657,14 @@ namespace FST
 					datatypeIT = check_int((char*)in.words[i]) ? IT::INT : IT::STR;
 					do {
 						i++;
-						if (in.words[i][0] == '|') {
+						if (in.words[i][0] == '\n') {
 							ret[symbols++] = '\n';
 							str++;
 							ret[symbols++] = (str / 10) + '0';
 							ret[symbols++] = (str % 10) + '0';
 							ret[symbols++] = ' ';
 						}
-					} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '|');
+					} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '\n');
 
 					if (GetLex((char*)in.words[i]) == LEX_FUNCTION)
 					{
@@ -612,14 +672,14 @@ namespace FST
 						ret[symbols++] = 'f';
 						do {
 							i++;
-							if (in.words[i][0] == '|') {
+							if (in.words[i][0] == '\n') {
 								ret[symbols++] = '\n';
 								str++;
 								ret[symbols++] = (str / 10) + '0';
 								ret[symbols++] = (str % 10) + '0';
 								ret[symbols++] = ' ';
 							}
-						} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '|');
+						} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '\n');
 						if (GetID((char*)in.words[i]) == 'I') {
 							while (in.words[i][leng++] != '\0');
 							if (leng > ID_MAXSIZE) {
@@ -630,15 +690,19 @@ namespace FST
 								ret[symbols] = '\0';
 								throw ERROR_THROW(66);
 							}
+							if (test(idtable, (char*)in.words[i], funcID)) {
+								ret[symbols] = '\0';
+								throw ERROR_THROW_LEX(95, str, in.words[i], (unsigned char*)ret);
+							}
 							LT::Add(lextable, { 'i', str, idtable.size });
-							IT::Add(idtable, { lextable.size - 1,(char*)in.words[i], datatypeIT, IT::V });
+							IT::Add(idtable, { lextable.size - 1,(char*)in.words[i], datatypeIT, IT::V, funcID});
 							ret[symbols++] = 'i';
 						}
 						else {
 							ret[symbols] = '\0';
 
 
-							throw ERROR_THROW_LEX(90, str, in.words[i], (unsigned char*)ret);
+							throw ERROR_THROW_LEX(93, str, in.words[i], (unsigned char*)ret);
 						}
 					}
 					else if (GetID((char*)in.words[i]) == 'I') {
@@ -651,15 +715,19 @@ namespace FST
 							ret[symbols] = '\0';
 							throw ERROR_THROW(66);
 						}
+						if (test(idtable, (char*)in.words[i], funcID)) {
+							ret[symbols] = '\0';
+							throw ERROR_THROW_LEX(96, str, in.words[i], (unsigned char*)ret);
+						}
 						LT::Add(lextable, { 'i', str, idtable.size });
-						IT::Add(idtable, { lextable.size - 1,(char*)in.words[i], datatypeIT, IT::V });
+						IT::Add(idtable, { lextable.size - 1,(char*)in.words[i], datatypeIT, IT::V, funcID});
 						ret[symbols++] = 'i';
 					}
 					else {
 						ret[symbols] = '\0';
 
 
-						throw ERROR_THROW_LEX(90, str, in.words[i], (unsigned char*)ret);
+						throw ERROR_THROW_LEX(93, str, in.words[i], (unsigned char*)ret);
 					}
 
 				}
@@ -686,6 +754,7 @@ namespace FST
 						throw ERROR_THROW_LEX(94, str, in.words[i], (unsigned char*)ret);
 					}
 				}
+				funcID.push((char*)"MAIN");
 				LT::Add(lextable, { 'm', str, NULL });
 				ret[symbols++] = 'm';
 				continue;
@@ -699,11 +768,14 @@ namespace FST
 			IT::IDDATATYPE datatype;
 			IT::IDTYPE type;
 			IT::Entry entry;
+			stack<char*> global;
+			global.push((char*)"0GLOBAL");
 			int j = 0;
 			int l = -1;
 			char* tmp_literal_name = new char[ID_MAXSIZE];
 			char* LiteralSTR = (char*)"STR";
 			char* LiteralINT = (char*)"INT";
+			char* LiteralBOOL = (char*)"BOOl";
 			int g = 0;
 			int tmp_lit_number = id;
 			char tmp_number[10];
@@ -756,12 +828,12 @@ namespace FST
 						ret[symbols] = '\0';
 						throw ERROR_THROW_LEX(91, str, in.words[i], (unsigned char*)ret);
 					}
-					entry = { lextable.size - 1, tmp_literal_name , datatype, type};
+					entry = { lextable.size - 1, tmp_literal_name , datatype, type, global};
 					entry.value.vstr = { j - 3, ((char*)in.words[i])};
 					IT::Add(idtable, entry);
 				}
 				ret[symbols++] = 'l';
-				//delete[] w
+				
 				
 				continue;
 				break;
@@ -769,7 +841,7 @@ namespace FST
 				l = idtable.size;
 				for (int k = idtable.size - 1; k >= 0; k--) {
 					if (IT::GetEntry(idtable, k).iddatatype == IT::STR && IT::GetEntry(idtable, k).idtype == IT::L &&
-						!strcmp(IT::GetEntry(idtable, k).value.vstr.str, (char*)in.words[i])) {
+						IT::GetEntry(idtable, k).value.vint == atoi((char*)in.words[i])) {
 						l = k;
 						break;
 					}
@@ -801,11 +873,55 @@ namespace FST
 
 					tmp_literal_name[g] = '\0';
 					id++;
-					IT::Add(idtable, { lextable.size - 1, tmp_literal_name , datatype, type, atoi((char*)in.words[i])});
+					IT::Add(idtable, { lextable.size - 1, tmp_literal_name , datatype, type, global,atoi((char*)in.words[i])});
 				}
 				ret[symbols++] = 'l';
-				//delete[] w
+				
 				continue;
+				break;
+
+			case 'b':
+				l = idtable.size;
+				for (int k = idtable.size - 1; k >= 0; k--) {
+					if (IT::GetEntry(idtable, k).iddatatype == IT::BOOL && IT::GetEntry(idtable, k).idtype == IT::L &&
+						!strcmp(IT::GetEntry(idtable, k).value.vbool ? "true" : "false", (char*)in.words[i])) {
+						l = k;
+						break;
+					}
+				}
+				LT::Add(lextable, { 'l', str, l });
+				if (l == idtable.size) {
+					datatype = IT::BOOL;
+					type = IT::L;
+					while (LiteralBOOL[g] != '\0') {
+						tmp_literal_name[g] = LiteralBOOL[g];
+						g++;
+					}
+					if (tmp_lit_number == 0) {
+						tmp_literal_name[g++] = '0';
+					}
+
+					else {
+						while (tmp_lit_number > 0) {
+							tmp_number[h++] = tmp_lit_number % 10 + '0';
+							tmp_lit_number /= 10;
+						}
+						tmp_number[h] = '\0';
+						h--;
+						while (h >= 0) {
+
+							tmp_literal_name[g++] = tmp_number[h--];
+						}
+					}
+
+					tmp_literal_name[g] = '\0';
+					id++;
+					IT::Add(idtable, { lextable.size - 1, tmp_literal_name , datatype, type, global, strcmp((char*)in.words[i], (char*)"true")? 1:0 });
+				}
+				ret[symbols++] = 'l';
+
+				continue;
+
 				break;
 			case 'I':
 				for (int k = idtable.size - 1; k >= 0; k--) {
@@ -823,7 +939,7 @@ namespace FST
 					throw ERROR_THROW_LEX(97, str, in.words[i], (unsigned char*)ret);
 				}
 				ret[symbols++] = 'i';
-				//delete[] w
+				
 				continue;
 				break;
 			}

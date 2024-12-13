@@ -3,15 +3,16 @@
 #define IN_MAX_LEN_WORD 255
 #define IN_MAX_WORD_SIZE 25
 #define IN_CTDE_ENDL '\n'
-//                                                                             0A = /n
-//	      0       1      2      3      4      5      6      7      8      9      A      B      C      D      E      F
+
+
 #define IN_CTDE_TABLE {\
-/*0*/	IN::F,	IN::F, IN::F, IN::F, IN::F,	IN::F, IN::F, IN::F, IN::F,	IN::S,  '|' , IN::F, IN::F,	IN::F, IN::F, IN::F,\
+/*        0       1       2      3     4       5      6     7       8      9     A      B      C       D      E      F*/\
+/*0*/	IN::F,	IN::F, IN::F, IN::F, IN::F,	IN::F, IN::F, IN::F, IN::F,	IN::S, IN::P, IN::F, IN::F, IN::F, IN::F, IN::F,\
 /*1*/	IN::F,	IN::F, IN::F, IN::F, IN::F,	IN::F, IN::F, IN::F, IN::F,	IN::F, IN::F, IN::F, IN::F,	IN::F, IN::F, IN::F,\
-/*2*/	IN::S,	IN::F, IN::F, IN::F, IN::F,	IN::F, IN::F, IN::A, IN::P,	IN::P, IN::P, IN::P, IN::P,	IN::P, IN::F, IN::P,\
+/*2*/	IN::S,	IN::P, IN::F, IN::F, IN::F,	IN::F, IN::P, IN::A, IN::P,	IN::P, IN::F, IN::F, IN::P,	IN::F, IN::F, IN::B,\
 /*3*/	IN::T,	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T,	IN::T, IN::F, IN::P, IN::F,	IN::P, IN::F, IN::F,\
 /*4*/	IN::F,	IN::T, IN::T, IN::T, IN::T,	IN::T, IN::T, IN::T, IN::T,	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T,\
-/*5*/	IN::T,	IN::T, IN::T, IN::T, IN::T,	IN::T, IN::T, IN::T, IN::T,	IN::T, IN::T, IN::F, IN::B, IN::F, IN::F, IN::F,\
+/*5*/	IN::T,	IN::T, IN::T, IN::T, IN::T,	IN::T, IN::T, IN::T, IN::T,	IN::T, IN::T, IN::F, IN::F, IN::F, IN::P, IN::F,\
 /*6*/	IN::F,  IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T,\
 /*7*/	IN::T,	IN::T, IN::T, IN::T, IN::T,	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::P, IN::P, IN::P, IN::F, IN::F,\
 /*8*/	IN::F,	IN::F, IN::F, IN::F, IN::F,	IN::F, IN::F, IN::F, IN::F,	IN::F, IN::F, IN::F, IN::F,	IN::F, IN::F, IN::F,\

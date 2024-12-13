@@ -117,6 +117,88 @@ namespace Log
 		}
 		(*log.stream) << "\n--—------------------------------------------- Идентификаторы ---------------------------------------——-- " << endl;
 		cout << "\n---------------------------------------------------------------------------------------------------------" << endl;
+		cout << "|  Номер  |    id    | Тип данных |    Тип    | Связь (Номер Лексема Строка) | Стек            | Значение?" << endl;
+		cout << "---------------------------------------------------------------------------------------------------------" << endl;
+		(*log.stream) << "|  Номер  |    id    | Тип данных |    Тип    | Связь (Номер Лексема Строка) | Стек            | Значение?" << endl;
+		(*log.stream) << "---------------------------------------------------------------------------------------------------------" << endl;
+
+		for (int i = 0; i < idtable.size; i++) {
+			cout << "| " << std::setfill('0') << std::setw(7) << i + 1 << " | ";
+			(*log.stream) << "| " << std::setfill('0') << std::setw(7) << i + 1 << " | ";
+
+			cout << std::setfill(' ') << std::setw(8) << idtable.table[i].id << " | ";
+			(*log.stream) << std::setfill(' ') << std::setw(8) << idtable.table[i].id << " | ";
+
+			switch (idtable.table[i].iddatatype) {
+			case IT::INT:
+				cout << std::setw(10) << "int" << " | ";
+				(*log.stream) << std::setw(10) << "int" << " | ";
+				break;
+			case IT::STR:
+				cout << std::setw(10) << "str" << " | ";
+				(*log.stream) << std::setw(10) << "str" << " | ";
+				break;
+			}
+
+			switch (idtable.table[i].idtype) {
+			case IT::F:
+				cout << std::setw(9) << "func" << " | ";
+				(*log.stream) << std::setw(9) << "func" << " | ";
+				break;
+			case IT::L:
+				cout << std::setw(9) << "lit" << " | ";
+				(*log.stream) << std::setw(9) << "lit" << " | ";
+				break;
+			case IT::P:
+				cout << std::setw(9) << "param" << " | ";
+				(*log.stream) << std::setw(9) << "param" << " | ";
+				break;
+			case IT::V:
+				cout << std::setw(9) << "variable" << " | ";
+				(*log.stream) << std::setw(9) << "variable" << " | ";
+				break;
+			}
+
+			LT::Entry en = LT::GetEntry(lextable, idtable.table[i].idxfirstLE);
+			cout << std::setw(9) << idtable.table[i].idxfirstLE + 1 << std::setw(9) << en.lexema << std::setw(9) << en.sn << "  | ";
+			(*log.stream) << std::setw(9) << idtable.table[i].idxfirstLE + 1 << std::setw(9) << en.lexema << std::setw(9) << en.sn + 1 << "  | ";
+
+			// Вывод содержимого стека
+			if (!idtable.table[i].funcID.empty()) {
+				cout << std::setw(0);
+				(*log.stream) << std::setw(0);
+				std::stack<char*> tempStack = idtable.table[i].funcID;
+				while (!tempStack.empty()) {
+					char* top = tempStack.top();
+					cout << top << " ";
+					(*log.stream) << top << " ";
+					tempStack.pop();
+				}
+			}
+			else {
+				cout << std::setw(14) << "empty";
+				(*log.stream) << std::setw(14) << "empty";
+			}
+			cout << " | ";
+			(*log.stream) << " | ";
+
+			// Вывод значения
+			if (idtable.table[i].idtype == IT::L && idtable.table[i].iddatatype == IT::INT) {
+				cout << idtable.table[i].value.vint << " ";
+				(*log.stream) << idtable.table[i].value.vint << " ";
+			}
+			else if (idtable.table[i].idtype == IT::L && idtable.table[i].iddatatype == IT::STR) {
+				cout << idtable.table[i].value.vstr.len << " " << idtable.table[i].value.vstr.str << " ";
+				(*log.stream) << idtable.table[i].value.vstr.len << " " << idtable.table[i].value.vstr.str << " ";
+			}
+
+			cout << endl;
+			(*log.stream) << endl;
+		}
+		cout << "---------------------------------------------------------------------------------------------------------" << endl;
+		(*log.stream) << "---------------------------------------------------------------------------------------------------------" << endl;
+		/*(*log.stream) << "\n--—------------------------------------------- Идентификаторы ---------------------------------------——-- " << endl;
+		cout << "\n---------------------------------------------------------------------------------------------------------" << endl;
 		cout << "|  Номер  |    id    | Тип данных |    Тип    | Связь (Номер Лексема Строка) | Значение?" << endl;
 		cout << "---------------------------------------------------------------------------------------------------------" << endl;
 		(*log.stream) << "|  Номер  |    id    | Тип данных |    Тип    | Связь (Номер Лексема Строка) | Значение?" << endl;
@@ -175,7 +257,7 @@ namespace Log
 			(*log.stream) << endl;
 		}
 		cout << "---------------------------------------------------------------------------------------------------------" << endl;
-		(*log.stream) << "---------------------------------------------------------------------------------------------------------" << endl;
+		(*log.stream) << "---------------------------------------------------------------------------------------------------------" << endl;*/
 		
 
 		

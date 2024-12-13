@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <stack>
 #define ID_MAXSIZE 10
 #define IT_MAXSIZE 4096
 #define IT_INT_DEFAULT 0x00000000
@@ -7,7 +8,7 @@
 #define IT_STR_MAXSIZE 255
 namespace IT
 {
-	enum IDDATATYPE { INT = 1, STR = 2 };
+	enum IDDATATYPE { INT = 1, STR = 2, BOOL = 3 };
 	enum IDTYPE { V = 1, F = 2, P = 3, L = 4 };
 
 	struct Entry		
@@ -15,7 +16,8 @@ namespace IT
 		int			idxfirstLE;			
 		char		*id;		
 		IDDATATYPE	iddatatype;			
-		IDTYPE		idtype;				
+		IDTYPE		idtype;	
+		std::stack<char*> funcID;
 		union
 		{
 			int		vint;				
@@ -23,8 +25,11 @@ namespace IT
 			{
 				int len;						
 				char *str;	
-			}	vstr;			
+			}	vstr;	
+			bool vbool;
 		} value;	
+
+
 	};
 	struct IdTable			
 	{

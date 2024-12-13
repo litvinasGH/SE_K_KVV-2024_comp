@@ -42,19 +42,19 @@ namespace In
 
 			switch (in.code[(unsigned char)inputChar]) 
 			{
-			case IN::T: // T = 1024
+			case IN::T: 
 				position++;
 				in.text[in.size] = inputChar;
 				in.size++;
 				break;
-			case IN::P: //65536
+			case IN::P: 
 				position++;
 				in.text[in.size] = inputChar;
 				in.size++;
 				break;
-			case IN::S: // S = 8192
+			case IN::S: 
 				if (in.size != 0) {
-					if ((in.code[(unsigned char)in.text[in.size - 1]] == IN::S || in.text[in.size - 1] == '|') && !string_flag)
+					if ((in.code[(unsigned char)in.text[in.size - 1]] == IN::S || in.text[in.size - 1] == '\n') && !string_flag)
 						position++;
 					else
 					{
@@ -67,7 +67,7 @@ namespace In
 					position++;
 				}
 				break;
-			case IN::F: // F = 2048
+			case IN::F: 
 				if (!string_flag) {
 					in.text[in.size] = '\0';
 					throw ERROR_THROW_IN(111, in.lines, position, (unsigned char*)in.text);
@@ -80,7 +80,7 @@ namespace In
 				}
 				break;
 
-			case IN::I: //I = 4096
+			case IN::I: 
 				if (string_flag)
 					in.ignor++;
 				else {
@@ -90,29 +90,35 @@ namespace In
 				}
 				break;
 
-			case IN::A: //A = 32768
+			case IN::A: 
 				position++;
 				in.text[in.size] = inputChar;
 				in.size++;
 				string_flag = !string_flag;
 				break;
-			case IN::B: //B = 16384
+			case IN::B: 
 				if (!string_flag) {
 			
 					
-					if (in.code[(unsigned char)fileInput.get()] != IN::B) {
-						in.text[in.size] = '\0';
-						throw ERROR_THROW_IN(111, in.lines, position, (unsigned char*)in.text);
+					if (in.code[(unsigned char)fileInput.peek()] != IN::B) {
+						//in.text[in.size] = '\0';
+						//throw ERROR_THROW_IN(111, in.lines, position, (unsigned char*)in.text);
+						position++;
+						in.text[in.size] = inputChar;
+						in.size++;
 					}
-					in.ignor++;
-					while (inputChar != '\n')
-					{
+					else {
 						in.ignor++;
-						inputChar = fileInput.get();
-					}
-						in.text[in.size] = '|';
+						while (inputChar != '\n')
+						{
+							in.ignor++;
+							inputChar = fileInput.get();
+						}
+						in.text[in.size] = '\n';
 						position++;
 						in.size++;
+						in.lines++;
+					}
 					
 				}
 				break;
@@ -138,6 +144,17 @@ namespace In
 			switch (in.code[(unsigned char)in.text[i]])
 			{
 			case IN::P:
+				if (strlen((char*)in.words[in.count_words])) {
+					in.words[in.count_words][symbols] = '\0';
+					symbols = 0;
+					in.count_words++;
+				}
+				in.words[in.count_words][symbols++] = in.text[i];
+				in.words[in.count_words][symbols] = '\0';
+				symbols = 0;
+				in.count_words++;
+				break;
+			case IN::B:
 				if (strlen((char*)in.words[in.count_words])) {
 					in.words[in.count_words][symbols] = '\0';
 					symbols = 0;

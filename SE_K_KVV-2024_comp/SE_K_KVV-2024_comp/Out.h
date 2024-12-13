@@ -10,9 +10,9 @@ namespace Out {
 		std::ofstream* stream;
 	};
 
-	static const OUT INITOUT{ L"", NULL };					// начальные данные для выходного потока
-	OUT getOut(wchar_t outFile[]);							// создание выходного потока
-	void WriteOut(OUT out, In::IN in);						// вывод обработанного текста в выходной файл
-	void Close(OUT out);									// закрытие выходного потока
+	static const OUT INITOUT{ L"", NULL };					
+	OUT getOut(wchar_t outFile[]);							
+	void WriteOut(OUT out, In::IN in);						
+	void Close(OUT out);									
 	void WriteError(OUT out, Error::ERROR e);
 }

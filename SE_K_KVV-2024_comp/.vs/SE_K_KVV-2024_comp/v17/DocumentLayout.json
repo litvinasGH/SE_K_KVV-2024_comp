@@ -7,60 +7,68 @@
       "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\PLN.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\IT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\IT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\stdafx.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\stdafx.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\In.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\In.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Parm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\Parm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Log.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\Log.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\LT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\LT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Rules.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\Rules.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\PLN.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\PLN.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\In.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\In.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\MFST.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\MFST.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\FST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\FST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\MFST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\MFST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\FST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\FST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Log.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\Log.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Error.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\Error.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\In.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\In.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Parm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\Parm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\stdafx.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\stdafx.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Error.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\Error.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\GRB.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\GRB.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\IT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\IT.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Error.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\Error.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\PLN.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\PLN.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\MFST.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\MFST.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\GRB.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|solutionrelative:SE_K_KVV-2024_comp\\GRB.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9980CEEF-81B4-46DF-90BF-CCD1594F2C7A}|SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp.vcxproj|D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\GRB.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -78,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,33 +94,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
+              "Title": "LT.h",
+              "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\LT.h",
+              "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\LT.h",
+              "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\LT.h",
+              "RelativeToolTip": "SE_K_KVV-2024_comp\\LT.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-12-13T06:47:29.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "In.h",
+              "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\In.h",
+              "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\In.h",
+              "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\In.h",
+              "RelativeToolTip": "SE_K_KVV-2024_comp\\In.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-12-13T06:47:21.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IT.h",
+              "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\IT.h",
+              "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\IT.h",
+              "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\IT.h",
+              "RelativeToolTip": "SE_K_KVV-2024_comp\\IT.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-12-11T13:28:02.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "FST.cpp",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\FST.cpp",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\FST.cpp",
               "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\FST.cpp",
               "RelativeToolTip": "SE_K_KVV-2024_comp\\FST.cpp",
-              "ViewState": "AgIAABoDAAAAAAAAAAAUwEADAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAFwCAAAAAAAAAAAuwHICAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-11T21:32:26.174Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "stdafx.h",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\stdafx.h",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\stdafx.h",
               "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\stdafx.h",
               "RelativeToolTip": "SE_K_KVV-2024_comp\\stdafx.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-11T20:54:07.451Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "PLN.h",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\PLN.h",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\PLN.h",
@@ -131,91 +178,66 @@
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\PLN.cpp",
               "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\PLN.cpp",
               "RelativeToolTip": "SE_K_KVV-2024_comp\\PLN.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-11T20:51:31.707Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
               "Title": "MFST.cpp",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\MFST.cpp",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\MFST.cpp",
               "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\MFST.cpp",
               "RelativeToolTip": "SE_K_KVV-2024_comp\\MFST.cpp",
-              "ViewState": "AgIAANgAAAAAAAAAAAAQwP8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAQwP8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-11T13:21:58.916Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "IT.h",
-              "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\IT.h",
-              "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\IT.h",
-              "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\IT.h",
-              "RelativeToolTip": "SE_K_KVV-2024_comp\\IT.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-11T13:28:02.004Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MFST.h",
-              "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\MFST.h",
-              "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\MFST.h",
-              "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\MFST.h",
-              "RelativeToolTip": "SE_K_KVV-2024_comp\\MFST.h",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAQwH4AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-11T13:21:45.215Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Log.cpp",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Log.cpp",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\Log.cpp",
               "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Log.cpp",
               "RelativeToolTip": "SE_K_KVV-2024_comp\\Log.cpp",
-              "ViewState": "AgIAAKMAAAAAAAAAAAAuwLwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAQwKgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-11T13:07:26.48Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\main.cpp",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\main.cpp",
               "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\main.cpp",
               "RelativeToolTip": "SE_K_KVV-2024_comp\\main.cpp",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAuwHIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAuwFoAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-11T13:06:47.746Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Rules.h",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Rules.h",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\Rules.h",
               "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Rules.h",
               "RelativeToolTip": "SE_K_KVV-2024_comp\\Rules.h",
-              "ViewState": "AgIAABcAAAAAAAAAAAAAwDUAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAEEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-11T13:02:04.212Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "GRB.h",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\GRB.h",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\GRB.h",
@@ -227,19 +249,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Error.cpp",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Error.cpp",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\Error.cpp",
               "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Error.cpp",
               "RelativeToolTip": "SE_K_KVV-2024_comp\\Error.cpp",
-              "ViewState": "AgIAADQAAAAAAAAAAAAUwC0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-11T12:20:43.643Z"
+              "WhenOpened": "2024-12-11T12:20:43.643Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "Error.h",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Error.h",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\Error.h",
@@ -247,11 +270,12 @@
               "RelativeToolTip": "SE_K_KVV-2024_comp\\Error.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-12-11T12:20:38.181Z"
+              "WhenOpened": "2024-12-11T12:20:38.181Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "Parm.h",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Parm.h",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\Parm.h",
@@ -263,33 +287,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Parm.cpp",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Parm.cpp",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\Parm.cpp",
               "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\Parm.cpp",
               "RelativeToolTip": "SE_K_KVV-2024_comp\\Parm.cpp",
-              "ViewState": "AgIAABIAAAAAAAAAAAAqwDEAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAqwCAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-11T12:01:23.994Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "In.cpp",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\In.cpp",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\In.cpp",
               "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\In.cpp",
               "RelativeToolTip": "SE_K_KVV-2024_comp\\In.cpp",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAADgAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-11T12:01:14.545Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
+              "Title": "MFST.h",
+              "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\MFST.h",
+              "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\MFST.h",
+              "ToolTip": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\MFST.h",
+              "RelativeToolTip": "SE_K_KVV-2024_comp\\MFST.h",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAQwH4AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-12-11T13:21:45.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "GRB.cpp",
               "DocumentMoniker": "D:\\git\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\SE_K_KVV-2024_comp\\GRB.cpp",
               "RelativeDocumentMoniker": "SE_K_KVV-2024_comp\\GRB.cpp",

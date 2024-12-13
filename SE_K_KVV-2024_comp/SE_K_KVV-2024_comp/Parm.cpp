@@ -46,7 +46,7 @@ namespace Parm
 		}
 
 		if (!bIN) {
-			//throw ERROR_THROW(100)
+			
 			wcscpy_s(parm.in, L"in.kvv");
 		}
 

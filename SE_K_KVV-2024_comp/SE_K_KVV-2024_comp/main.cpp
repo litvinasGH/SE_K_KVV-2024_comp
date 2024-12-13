@@ -84,7 +84,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 		Log::WriteIn(log, in); 
-		//Out::WriteOut(out, in); 
+		
 		LT::LexTable lextable = LT::Create(in.count_words); 
 		IT::IdTable idtable = IT::Create(in.count_words);
 		FST::GetLexOrID(in, lextable, idtable);
@@ -110,7 +110,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 		std::cout << "28<<: польская запись построена" << std::endl;
-		// заполнение таблиц lextable и idtable см. лаб. 14
+		
 
 		if (PolishNotation(pos, lextable, idtable)) {
 			std::cout << "EXP1<<: польская запись построена" << std::endl;
