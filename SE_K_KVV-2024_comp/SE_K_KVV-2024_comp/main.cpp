@@ -61,7 +61,6 @@ int _tmain(int argc, _TCHAR* argv[])
 #endif 
 
 
-
 	Log::LOG log = Log::INITLOG;
 	Out::OUT out;
 	try
@@ -88,9 +87,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		LT::LexTable lextable = LT::Create(in.count_words); 
 		IT::IdTable idtable = IT::Create(in.count_words);
 		FST::GetLexOrID(in, lextable, idtable);
-		if (parm.deb) {
-			Log::WriteLex(log, lextable, idtable);
-		}
+
+		Log::WriteLex(log, lextable, idtable);
+		
 
 		MFST_TRACE_START
 			MFST::Mfst mfst(lextable, GRB::getGreibach());
@@ -107,16 +106,24 @@ int _tmain(int argc, _TCHAR* argv[])
 		
 
 		PLN::findN(lextable, idtable);
+		*log.stream << " польская запись построена" << std::endl;
 		if (parm.deb) {
-		std::cout << "28<<: польская запись построена" << std::endl;
+			std::cout << " польская запись построена" << std::endl;
+			
 
 
 			Log::WriteLex(log, lextable, idtable);
 		}
 
 
+		SemAnl(lextable, idtable);
+		if (parm.deb) {
+			std::cout << " Сем анализ пройден" << std::endl;
+		}
+		*log.stream << " Сем анализ пройден" << std::endl;
 
-
+		LT::lexAndIdTable li = { lextable, idtable };
+		CodeGen::Generation(li, out);
 
 		IT::Delete(idtable);
 		LT::Delete(lextable);
@@ -134,11 +141,15 @@ int _tmain(int argc, _TCHAR* argv[])
 				<< ", позиция: " << "\033[32m" << e.inext.col + 1 << "\033[0m\n\n"; 
 			Out::WriteError(out, e);
 		}
-		else if ((e.id >= 90 && e.id <= 97) || (e.id == 65)) {
+		else if ((e.id >= 90 && e.id <= 97) || (e.id == 65) || (e.id == 68)) {
 			cout << e.inext.rtext << endl; 
 			cout << "\033[31mОшибка\033[32m " << e.id << "\033[0m: " << e.message << endl; 
 			cout << "Cтрока: " << "\033[32m" << e.inext.line + 1 << "\033[0m"
 				<< std::endl << "Лексема:\033[32m \"" << e.inext.text << "\"\033[0m\n\n"; 
+		}
+		else if (e.id >= 140 && e.id <= 141) {
+			cout << "\033[31mОшибка\033[32m " << e.id << "\033[0m: " << e.message << endl;
+			cout << "Cтрока: " << "\033[32m" << e.inext.line + 1 << "\033[0m" << endl;
 		}
 		else {
 			cout << "\033[31mОшибка:\033[32m " << e.id << "\033[0m: " << e.message << endl; 

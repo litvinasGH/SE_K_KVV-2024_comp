@@ -176,6 +176,7 @@ namespace MFST
             cout << getDiagnosis(0, buf, log) << endl;
             cout << getDiagnosis(1, buf, log) << endl;
             cout << getDiagnosis(2, buf, log) << endl;
+            exit(600);
             break;
         }
 

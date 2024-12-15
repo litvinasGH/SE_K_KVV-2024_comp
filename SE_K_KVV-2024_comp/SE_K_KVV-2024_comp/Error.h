@@ -1,6 +1,7 @@
 #pragma once
 
 #define ERROR_THROW(id) Error::geterror(id);
+#define ERROR_THROW_SEM(id, ln) Error::geterror(id, ln);
 #define ERROR_THROW_IN(id, l, c, text) Error::geterrorin(id, l, c, text); 
 #define ERROR_THROW_LEX(id, l, text, t) Error::geterrorin(id, l, text, t);
 #define ERROR_ENTRY(id, m) {id, m, {-1, -1, (unsigned char*)""}} 
@@ -35,7 +36,8 @@ namespace Error
 		} inext;
 	};
 
-	ERROR geterror(int id);						
+	ERROR geterror(int id);		
+	ERROR geterror(int id, int ln);
 	ERROR geterrorin(							
 		int id,										
 		int line,									

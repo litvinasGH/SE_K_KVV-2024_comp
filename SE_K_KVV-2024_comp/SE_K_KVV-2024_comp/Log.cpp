@@ -150,10 +150,10 @@ namespace Log
 		(*log.stream) << "\n--—------------------------------------------- Идентификаторы ---------------------------------------——-----------------" << endl;
 		cout << "\n---------------------------------------------------------------------------------------------------------------------------------" << endl;
 		cout << "|  Номер  |    id    | Тип данных |     Тип     | Связь (Номер Лексема Строка) |" << right << std::setfill(' ') <<
-			setw(maxl) << "Видемость" << "  | Значение ? " << endl;
+			setw(maxl) << "Видимость" << "  | Значение ? " << endl;
 		cout << "-----------------------------------------------------------------------------------------------------------------------------------" << endl;
 		(*log.stream) << "|  Номер  |    id    | Тип данных |     Тип     | Связь (Номер Лексема Строка) |" << right << std::setfill(' ') <<
-			setw(maxl) << "Видемость" << "  | Значение ? " << endl;
+			setw(maxl) << "Видимость" << "  | Значение ? " << endl;
 		(*log.stream) << "-------------------------------------------------------------------------------------------------------------------------" << endl;
 
 		for (int i = 0; i < idtable.size; i++) {
@@ -171,6 +171,10 @@ namespace Log
 			case IT::STR:
 				cout << std::setw(10) << "str" << " | ";
 				(*log.stream) << std::setw(10) << "str" << " | ";
+				break;
+			case IT::BOOL:
+				cout << std::setw(10) << "bool" << " | ";
+				(*log.stream) << std::setw(10) << "bool" << " | ";
 				break;
 			}
 
@@ -228,6 +232,10 @@ namespace Log
 			else if (idtable.table[i].idtype == IT::L && idtable.table[i].iddatatype == IT::STR) {
 				cout << idtable.table[i].value.vstr.len << " " << idtable.table[i].value.vstr.str << " ";
 				(*log.stream) << idtable.table[i].value.vstr.len << " " << idtable.table[i].value.vstr.str << " ";
+			}
+			else if (idtable.table[i].idtype == IT::L && idtable.table[i].iddatatype == IT::BOOL) {
+				cout << idtable.table[i].value.vbool << " ";
+				(*log.stream) << idtable.table[i].value.vbool << " ";
 			}
 
 			cout << endl;
@@ -304,7 +312,7 @@ namespace Log
 	void WriteError(LOG log, Error::ERROR error)
 	{
 		
-			if ((error.id >= 90 && error.id <= 97) || (error.id = 65)) {
+			if ((error.id >= 90 && error.id <= 97) || (error.id = 65) || (error.id = 68)) {
 				(*log.stream) << "\n--—- Представления кода в виде лексем ——-- " << endl;
 				(*log.stream) << error.inext.rtext << endl;
 				(*log.stream) << "Ошибка " << error.id << ": " << error.message << endl;
@@ -314,6 +322,10 @@ namespace Log
 			{
 				(*log.stream) << "Ошибка " << error.id << ": " << error.message << " "
 					<< "строка " << error.inext.line << ", позиция: " << error.inext.col << std::endl;
+			}
+			else if (error.id >= 140 && error.id <= 141) {
+				(*log.stream) << "Ошибка " << error.id << error.message << endl;
+				(*log.stream) << "Cтрока: " << error.inext.line + 1 << endl;
 			}
 			else
 				(*log.stream) << "Ошибка " << error.id << ": " << error.message << "\n";

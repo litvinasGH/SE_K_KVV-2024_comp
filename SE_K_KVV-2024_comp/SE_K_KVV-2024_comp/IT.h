@@ -28,7 +28,7 @@ namespace IT
 			}	vstr;	
 			bool vbool;
 		} value;	
-
+		bool isArray = false;
 
 	};
 	struct IdTable			

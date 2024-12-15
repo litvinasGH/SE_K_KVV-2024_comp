@@ -24,7 +24,7 @@ namespace Error
 		ERROR_ENTRY(65, "Таблица идентификаторов: название идентификатора больше 10 символов"),
 		ERROR_ENTRY(66, "Таблица идентификаторов: ошибка при добавлении элемента, таблица переполнена"),
 		ERROR_ENTRY(67, "Таблица идентификаторов: ошибка при получени элемента по индексу, индекс за границами таблицы"),
-		ERROR_ENTRY_NODEF(68), ERROR_ENTRY_NODEF(69),
+		ERROR_ENTRY(68, "Лексический анализатор: Обращение к переменной, не являющейся массивом"), ERROR_ENTRY_NODEF(69),
 		ERROR_ENTRY_NODEF10(70), ERROR_ENTRY_NODEF10(80),
 
 		
@@ -36,7 +36,8 @@ namespace Error
 		ERROR_ENTRY(95, "Лексический анализатор: функция объявлена несколько раз"),
 		ERROR_ENTRY(96, "Лексический анализатор: переменная объявлена несколько раз"),
 		ERROR_ENTRY(97, "Лексический анализатор: неизвестная переменная"),
-		ERROR_ENTRY_NODEF(98), ERROR_ENTRY_NODEF(99),
+		ERROR_ENTRY(98, "Лексический анализатор: не найдена точка входа(main)"),
+		ERROR_ENTRY(99, "Лексический анализатор: ключевое слово используется как идетификатор"),
 
 		ERROR_ENTRY(100, "Параметр \033[32m-in\033[0m должен быть задан(используйте \033[32m-help\033[0m для помощи)"),
 		ERROR_ENTRY_NODEF(101),ERROR_ENTRY_NODEF(102),ERROR_ENTRY_NODEF(103),
@@ -49,16 +50,18 @@ namespace Error
 		ERROR_ENTRY(112, "Ошибка при создании файла протокола (-log)"),
 		ERROR_ENTRY(113, "Ошибка при создании файла выхода (-out)"),
 		ERROR_ENTRY(114, "Имя log файла уже используется"), ERROR_ENTRY(115, "Имя out файла уже используется"), 
-		ERROR_ENTRY(116, "Превышено кол-во лексем"), ERROR_ENTRY(117, "Превышено кол-во индификаторов"),
+		ERROR_ENTRY(116, "Превышено кол-во лексем"), ERROR_ENTRY(117, "Превышено кол-во идетификаторов"),
 		ERROR_ENTRY_NODEF(118), ERROR_ENTRY_NODEF(119), 
 		ERROR_ENTRY_NODEF10(120),
-		ERROR_ENTRY(130,"Неправильная структура программы"),
-		ERROR_ENTRY(131,"Неправильный индификатор"),
-		ERROR_ENTRY(132,"Произошла ошибка в параметрах функции"),
-		ERROR_ENTRY(133,"Произошла ошибка в параметрах функции, которая в данный момент вызывается."),
-		ERROR_ENTRY(134, "Правило: Формула в параметрах вычисляемой функции"),
+		ERROR_ENTRY(130,"Синтаксический анализатор: Неправильная структура программы"),
+		ERROR_ENTRY(131,"Синтаксический анализатор: Неправильный идетификатор"),
+		ERROR_ENTRY(132,"Синтаксический анализатор: Произошла ошибка в параметрах функции"),
+		ERROR_ENTRY(133,"Синтаксический анализатор: Произошла ошибка в параметрах функции, которая в данный момент вызывается."),
+		ERROR_ENTRY(134,"Синтаксический анализатор: Формула в параметрах вычисляемой функции"),
 		ERROR_ENTRY_NODEF(135),ERROR_ENTRY_NODEF(136),ERROR_ENTRY_NODEF(137),ERROR_ENTRY_NODEF(138),ERROR_ENTRY_NODEF(139),
-		ERROR_ENTRY_NODEF10(140),ERROR_ENTRY_NODEF10(150), ERROR_ENTRY_NODEF10(160),ERROR_ENTRY_NODEF10(170),
+		ERROR_ENTRY(140, "Семантический анализатор: Неверные параметры функции"),ERROR_ENTRY(141, "Семантический анализатор: Неверный тип данных"),ERROR_ENTRY_NODEF(142),ERROR_ENTRY_NODEF(143),ERROR_ENTRY_NODEF(144),
+		ERROR_ENTRY_NODEF(145),ERROR_ENTRY_NODEF(146),ERROR_ENTRY_NODEF(147),ERROR_ENTRY_NODEF(148),ERROR_ENTRY_NODEF(149),
+		ERROR_ENTRY_NODEF10(150), ERROR_ENTRY_NODEF10(160),ERROR_ENTRY_NODEF10(170),
 		ERROR_ENTRY_NODEF10(180),ERROR_ENTRY_NODEF10(190),
 		ERROR_ENTRY_NODEF100(200), ERROR_ENTRY_NODEF100(300), ERROR_ENTRY_NODEF100(400), ERROR_ENTRY_NODEF100(500),
 		ERROR_ENTRY_NODEF10(600),
@@ -72,6 +75,13 @@ namespace Error
 	{
 		if (id > ERROR_MAX_ENTRY - 1 || id < 1)
 			return errors[0];
+		return errors[id];
+	}
+	ERROR geterror(int id, int line)
+	{
+		if (id > ERROR_MAX_ENTRY - 1 || id < 1)
+			return errors[0];
+		errors[id].inext.line = line;
 		return errors[id];
 	}
 	ERROR geterrorin(int id, int line, int col, unsigned char* text)

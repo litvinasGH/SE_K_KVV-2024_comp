@@ -98,28 +98,173 @@ namespace FST
 	}
 
 	
+	int parseInteger(char* str) {
+		// Проверяем, начинается ли строка с "0x", "0b" или "0"
+		if (str[1] != '\0' && str[0] == '0') {
+			if (str[1] == 'x' || str[1] == 'X') {
+				// Шестнадцатеричное число
+				return std::stoi(str + 2, (size_t*)nullptr, 16);
+			}
+			else if (str[1] == 'b' || str[1] == 'B') {
+				// Двоичное число
+				return std::stoi(str + 2, (size_t*)nullptr, 2);
+			}
+			else {
+				// Восьмеричное число
+				return std::stoi(str, (size_t*)nullptr, 8);
+			}
+		}
+		// Десятичное число
+		return std::stoi(str);
+	}
+	char GetLex(char* word) {
+
+		FST Ilex(
+			(char*)word,
+			8,
+			NODE(1, RELATION('i', 1)),
+			NODE(1, RELATION('n', 2)),
+			NODE(1, RELATION('t', 3)),
+			NODE(1, RELATION('e', 4)),
+			NODE(1, RELATION('g', 5)),
+			NODE(1, RELATION('e', 6)),
+			NODE(1, RELATION('r', 7)),
+			NODE()
+		);
+		FST Slex(
+			(char*)word,
+			5,
+			NODE(1, RELATION('c', 1)),
+			NODE(1, RELATION('h', 2)),
+			NODE(1, RELATION('a', 3)),
+			NODE(1, RELATION('r', 4)),
+			NODE()
+		);
+		FST Blex(
+			(char*)word,
+			5,
+			NODE(1, RELATION('b', 1)),
+			NODE(1, RELATION('o', 2)),
+			NODE(1, RELATION('o', 3)),
+			NODE(1, RELATION('l', 4)),
+			NODE()
+		);
+		if (execute(Ilex) || execute(Slex) || execute(Blex))
+			return LEX_INTEGER;
+		FST Flex(
+			(char*)word,
+			9,
+			NODE(1, RELATION('f', 1)),
+			NODE(1, RELATION('u', 2)),
+			NODE(1, RELATION('n', 3)),
+			NODE(1, RELATION('c', 4)),
+			NODE(1, RELATION('t', 5)),
+			NODE(1, RELATION('i', 6)),
+			NODE(1, RELATION('o', 7)),
+			NODE(1, RELATION('n', 8)),
+			NODE());
+		if (execute(Flex))
+			return LEX_FUNCTION;
+		FST Dlex(
+			(char*)word,
+			8,
+			NODE(1, RELATION('d', 1)),
+			NODE(1, RELATION('e', 2)),
+			NODE(1, RELATION('c', 3)),
+			NODE(1, RELATION('l', 4)),
+			NODE(1, RELATION('a', 5)),
+			NODE(1, RELATION('r', 6)),
+			NODE(1, RELATION('e', 7)),
+			NODE()
+		);
+		if (execute(Dlex))
+			return LEX_DECLARE;
+		FST Plex(
+			(char*)word,
+			6,
+			NODE(1, RELATION('w', 1)),
+			NODE(1, RELATION('r', 2)),
+			NODE(1, RELATION('i', 3)),
+			NODE(1, RELATION('t', 4)),
+			NODE(1, RELATION('e', 5)),
+			NODE()
+		);
+		if (execute(Plex))
+			return LEX_PRINT;
+		FST RElex(
+			(char*)word,
+			5,
+			NODE(1, RELATION('r', 1)),
+			NODE(1, RELATION('e', 2)),
+			NODE(1, RELATION('a', 3)),
+			NODE(1, RELATION('d', 4)),
+			NODE()
+		);
+		if (execute(RElex))
+			return LEX_READ;
+		FST Mlex(
+			(char*)word,
+			5,
+			NODE(1, RELATION('m', 1)),
+			NODE(1, RELATION('a', 2)),
+			NODE(1, RELATION('i', 3)),
+			NODE(1, RELATION('n', 4)),
+			NODE()
+		);
+		if (execute(Mlex))
+			return LEX_MAIN;
+
+		FST Rlex(
+			(char*)word,
+			7,
+			NODE(1, RELATION('r', 1)),
+			NODE(1, RELATION('e', 2)),
+			NODE(1, RELATION('t', 3)),
+			NODE(1, RELATION('u', 4)),
+			NODE(1, RELATION('r', 5)),
+			NODE(1, RELATION('n', 6)),
+			NODE()
+		);
+		if (execute(Rlex))
+			return LEX_RETURN;
+		FST IFlex(
+			(char*)word,
+			3,
+			NODE(1, RELATION('i', 1)),
+			NODE(1, RELATION('f', 2)),
+			NODE()
+		);
+		if (execute(IFlex))
+			return LEX_IF;
+
+		return 0;
+
+	}
 	
-	
-	
-	
-	int GetID(char* word) {
+	int GetID(char* word, int str, char* ret, int symb) {
+
+		if (GetLex(word) != 0) {
+			ret[symb] = '\0';
+			throw ERROR_THROW_LEX(99, str, (unsigned char*)word, (unsigned char*)ret)
+		}
+
 		FST Tlex(
 			(char*)word,
 			5,
 			NODE(1, RELATION('t', 1)),
-			NODE(1, RELATION('r', 2)),
-			NODE(1, RELATION('u', 3)),
-			NODE(1, RELATION('e', 4)),
+			NODE(2, RELATION('r', 2)),
+			NODE(3, RELATION('u', 3)),
+			NODE(4, RELATION('e', 4)),
 			NODE()
 		);
 		FST Flex(
 			(char*)word,
 			6,
 			NODE(1, RELATION('f', 1)),
-			NODE(1, RELATION('a', 2)),
-			NODE(1, RELATION('l', 3)),
-			NODE(1, RELATION('s', 4)),
-			NODE(1, RELATION('e', 5)),
+			NODE(2, RELATION('a', 2)),
+			NODE(3, RELATION('l', 3)),
+			NODE(4, RELATION('s', 4)),
+			NODE(5, RELATION('e', 5)),
 			NODE()
 		);
 		if (execute(Tlex) || execute(Flex))
@@ -203,19 +348,59 @@ namespace FST
 		}
 		FST intLit(
 			word,
-			2,
-			NODE(20, RELATION('0', 0), RELATION('0', 1), RELATION('1', 0), RELATION('1', 1), RELATION('2', 0),
-				RELATION('2', 1), RELATION('3', 0), RELATION('3', 1), RELATION('4', 0), RELATION('4', 1),
-				RELATION('5', 0), RELATION('5', 1), RELATION('6', 0), RELATION('6', 1), RELATION('7', 0),
-				RELATION('7', 1), RELATION('8', 0), RELATION('8', 1), RELATION('9', 0), RELATION('9', 1)),
-			NODE()
+			7, 
+			NODE(20,
+				RELATION('0', 1), RELATION('0', 6), // Если встречается "0", переход в состояние 1
+				RELATION('1', 5), RELATION('2', 5), RELATION('3', 5), RELATION('4', 5),
+				RELATION('5', 5), RELATION('6', 5), RELATION('7', 5), RELATION('8', 5), RELATION('9', 5),
+				RELATION('1', 6), RELATION('2', 6), RELATION('3', 6), RELATION('4', 6),
+				RELATION('5', 6), RELATION('6', 6), RELATION('7', 6), RELATION('8', 6), RELATION('9', 6)
+			),
+			// Состояние 1: После "0"
+			NODE(13,
+				RELATION('x', 3), RELATION('X', 3), // Если "x", то переходим к шестнадцатеричному формату
+				RELATION('b', 4), RELATION('B', 4), // Если "b", то переходим к двоичному формату
+				RELATION('0', 1), RELATION('0', 2), RELATION('1', 2), RELATION('2', 2), RELATION('3', 2), RELATION('4', 2),
+				RELATION('5', 2), RELATION('6', 2), RELATION('7', 2) // Восьмеричные цифры
+			),
+			NODE(16,
+				RELATION('0', 2), RELATION('1', 2), RELATION('2', 2), RELATION('3', 2), RELATION('4', 2),
+				RELATION('5', 2), RELATION('6', 2), RELATION('7', 2),
+				RELATION('0', 6), RELATION('1', 6), RELATION('2', 6), RELATION('3', 6), RELATION('4', 6),
+				RELATION('5', 6), RELATION('6', 6), RELATION('7', 6) // Восьмеричные цифры
+			),
+			// Состояние 2: После "0x"
+			NODE(44,
+				// Для "0x": допустимы только шестнадцатеричные символы
+				RELATION('0', 3), RELATION('1', 3), RELATION('2', 3), RELATION('3', 3), RELATION('4', 3), RELATION('5', 3),
+				RELATION('6', 3), RELATION('7', 3), RELATION('8', 3), RELATION('9', 3),
+				RELATION('a', 3), RELATION('b', 3), RELATION('c', 3), RELATION('d', 3),
+				RELATION('e', 3), RELATION('f', 3), RELATION('A', 3), RELATION('B', 3),
+				RELATION('C', 3), RELATION('D', 3), RELATION('E', 3), RELATION('F', 3),
+				
+				RELATION('0', 6), RELATION('1', 6), RELATION('2', 6), RELATION('3', 6), RELATION('4', 6), RELATION('5', 6),
+				RELATION('6', 6), RELATION('7', 6), RELATION('8', 6), RELATION('9', 6),
+				RELATION('a', 6), RELATION('b', 6), RELATION('c', 6), RELATION('d', 6),
+				RELATION('e', 6), RELATION('f', 6), RELATION('A', 6), RELATION('B', 6),
+				RELATION('C', 6), RELATION('D', 6), RELATION('E', 6), RELATION('F', 6)
+			),
+			NODE(4,
+				RELATION('0', 4), RELATION('1', 4), 
+				RELATION('0', 6), RELATION('1', 6)
+			),
+			NODE(20,
+				RELATION('0', 5), RELATION('1', 5), RELATION('2', 5), RELATION('3', 5), RELATION('4', 5),
+				RELATION('5', 5), RELATION('6', 5), RELATION('7', 5), RELATION('8', 5), RELATION('9', 5),
+				RELATION('0', 6), RELATION('1', 6), RELATION('2', 6), RELATION('3', 6), RELATION('4', 6),
+				RELATION('5', 6), RELATION('6', 6), RELATION('7', 6), RELATION('8', 6), RELATION('9', 6)
+			),
+
+			NODE() 
 		);
 		if (execute(intLit)) {
 
 			return 'i';
 		}
-
-
 
 		FST iLex(
 			word,
@@ -350,7 +535,8 @@ namespace FST
 		return 0;
 	}
 
-	char GetLex(char* word) {
+	
+	char check_int(char* word) {
 		FST Ilex(
 			(char*)word,
 			8,
@@ -363,105 +549,31 @@ namespace FST
 			NODE(1, RELATION('r', 7)),
 			NODE()
 		);
-		FST Slex(
-			(char*)word,
-			7,
-			NODE(1, RELATION('s', 1)),
-			NODE(1, RELATION('t', 2)),
-			NODE(1, RELATION('r', 3)),
-			NODE(1, RELATION('i', 4)),
-			NODE(1, RELATION('n', 5)),
-			NODE(1, RELATION('g', 6)),
-			NODE()
-		);
-		if (execute(Ilex) || execute(Slex))
-			return LEX_INTEGER;
-		FST Flex(
-			(char*)word,
-			9,
-			NODE(1, RELATION('f', 1)),
-			NODE(1, RELATION('u', 2)),
-			NODE(1, RELATION('n', 3)),
-			NODE(1, RELATION('c', 4)),
-			NODE(1, RELATION('t', 5)),
-			NODE(1, RELATION('i', 6)),
-			NODE(1, RELATION('o', 7)),
-			NODE(1, RELATION('n', 8)),
-			NODE());
-		if (execute(Flex))
-			return LEX_FUNCTION;
-		FST Dlex(
-			(char*)word,
-			8,
-			NODE(1, RELATION('d', 1)),
-			NODE(1, RELATION('e', 2)),
-			NODE(1, RELATION('c', 3)),
-			NODE(1, RELATION('l', 4)),
-			NODE(1, RELATION('a', 5)),
-			NODE(1, RELATION('r', 6)),
-			NODE(1, RELATION('e', 7)),
-			NODE()
-		);
-		if (execute(Dlex))
-			return LEX_DECLARE;
-		FST Plex(
-			(char*)word,
-			6,
-			NODE(1, RELATION('p', 1)),
-			NODE(1, RELATION('r', 2)),
-			NODE(1, RELATION('i', 3)),
-			NODE(1, RELATION('n', 4)),
-			NODE(1, RELATION('t', 5)),
-			NODE()
-		);
-		if (execute(Plex))
-			return LEX_PRINT;
-		FST Mlex(
+		FST Clex(
 			(char*)word,
 			5,
-			NODE(1, RELATION('m', 1)),
-			NODE(1, RELATION('a', 2)),
-			NODE(1, RELATION('i', 3)),
-			NODE(1, RELATION('n', 4)),
+			NODE(1, RELATION('c', 1)),
+			NODE(1, RELATION('h', 2)),
+			NODE(1, RELATION('a', 3)),
+			NODE(1, RELATION('r', 4)),
 			NODE()
 		);
-		if (execute(Mlex))
-			return LEX_MAIN;
 
-		FST Rlex(
+		FST Blex(
 			(char*)word,
-			7,
-			NODE(1, RELATION('r', 1)),
-			NODE(1, RELATION('e', 2)),
-			NODE(1, RELATION('t', 3)),
-			NODE(1, RELATION('u', 4)),
-			NODE(1, RELATION('r', 5)),
-			NODE(1, RELATION('n', 6)),
+			5,
+			NODE(1, RELATION('b', 1)),
+			NODE(1, RELATION('o', 2)),
+			NODE(1, RELATION('o', 3)),
+			NODE(1, RELATION('l', 4)),
 			NODE()
 		);
-		if (execute(Rlex))
-			return LEX_RETURN;
-
-		return 0;
-
-	}
-	bool check_int(char* word) {
-		FST integer_au(
-			word,
-			8,
-			NODE(1, RELATION('i', 1)),
-			NODE(1, RELATION('n', 2)),
-			NODE(1, RELATION('t', 3)),
-			NODE(1, RELATION('e', 4)),
-			NODE(1, RELATION('g', 5)),
-			NODE(1, RELATION('e', 6)),
-			NODE(1, RELATION('r', 7)),
-			NODE()
-		);
-		if (execute(integer_au)) {
-			return true;
-		}
-		return false;
+		if (execute(Ilex))
+			return LEX_INTEGER;
+		if (execute(Clex))
+			return 'c';
+		if (execute(Ilex))
+			return 'b';
 	}
 
 
@@ -496,7 +608,7 @@ namespace FST
 	void GetLexOrID(In::IN in, LT::LexTable& lextable, IT::IdTable& idtable) {
 		char* ret = new char[LT_MAXSIZE];
 		int symbols = 0;
-		const char constlex[] = ";,{}()=|&!^";
+		const char constlex[] = ";,{}()=|&!^]";
 		int str = 1;
 		int id = 0;
 		int lastid = 0;
@@ -522,6 +634,16 @@ namespace FST
 			if (lextable.size + 1 > lextable.maxsize) {
 				ret[symbols] = '\0';
 				throw ERROR_THROW(60);
+			}
+			if (in.words[i][0] == '[') {
+				if (idtable.table[idtable.size - 1].idxfirstLE = lextable.size - 1) {
+					idtable.table[idtable.size - 1].isArray = true;
+				}
+				else if (!idtable.table[lextable.table[lextable.size - 1].idxTI].isArray) {
+					throw ERROR_THROW_LEX(68, str, (unsigned char*)idtable.table[lextable.table[lextable.size - 1].idxTI].id, (unsigned char*)ret);
+				}
+				LT::Add(lextable, { '[', str, NULL});
+				continue;
 			}
 			bool flag = false;
 			for (int j = 0; j < 12; j++) {
@@ -558,9 +680,9 @@ namespace FST
 			switch (GetLex((char*)in.words[i]))
 			{
 			case LEX_INTEGER:
-				LT::Add(lextable, { 't', str, NULL });
 				ret[symbols++] = 't';
-				datatypeIT = check_int((char*)in.words[i]) ? IT::INT : IT::STR;
+				datatypeIT = check_int((char*)in.words[i]) == LEX_INTEGER ? IT::INT : check_int((char*)in.words[i]) == 'c' ? IT::STR : IT::BOOL;
+				LT::Add(lextable, { 't', str, NULL, datatypeIT });
 				do {
 					i++;
 					if (in.words[i][0] == '\n') {
@@ -586,7 +708,7 @@ namespace FST
 							ret[symbols++] = ' ';
 						}
 					} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '\n');
-					if (GetID((char*)in.words[i]) == 'I') {
+					if (GetID((char*)in.words[i], str, ret, symbols) == 'I') {
 						while (in.words[i][leng++] != '\0');
 						if (leng > ID_MAXSIZE) {
 							ret[symbols] = '\0';
@@ -611,7 +733,7 @@ namespace FST
 						throw ERROR_THROW_LEX(93, str, in.words[i], (unsigned char*)ret);
 					}
 				}
-				else if (GetID((char*)in.words[i]) == 'I') {
+				else if (GetID((char*)in.words[i], str, ret, symbols) == 'I') {
 					while (in.words[i][leng++] != '\0');
 					if (leng > ID_MAXSIZE) {
 						ret[symbols] = '\0';
@@ -625,6 +747,7 @@ namespace FST
 						ret[symbols] = '\0';
 						throw ERROR_THROW_LEX(96, str, in.words[i], (unsigned char*)ret);
 					}*/
+
 					LT::Add(lextable, { 'i', str, idtable.size });
 					IT::Add(idtable, { lextable.size - 1,(char*)in.words[i], datatypeIT, IT::P, funcID});
 					ret[symbols++] = 'i';
@@ -652,9 +775,9 @@ namespace FST
 
 
 				if (GetLex((char*)in.words[i]) == LEX_INTEGER) {
-					LT::Add(lextable, { 't', str, NULL });
 					ret[symbols++] = 't';
-					datatypeIT = check_int((char*)in.words[i]) ? IT::INT : IT::STR;
+					datatypeIT = check_int((char*)in.words[i]) == LEX_INTEGER ? IT::INT : check_int((char*)in.words[i]) == 'c' ? IT::STR : IT::BOOL;
+					LT::Add(lextable, { 't', str, NULL, datatypeIT });
 					do {
 						i++;
 						if (in.words[i][0] == '\n') {
@@ -680,7 +803,7 @@ namespace FST
 								ret[symbols++] = ' ';
 							}
 						} while (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0' || in.words[i][0] == '\n');
-						if (GetID((char*)in.words[i]) == 'I') {
+						if (GetID((char*)in.words[i], str, ret, symbols) == 'I') {
 							while (in.words[i][leng++] != '\0');
 							if (leng > ID_MAXSIZE) {
 								ret[symbols] = '\0';
@@ -705,7 +828,7 @@ namespace FST
 							throw ERROR_THROW_LEX(93, str, in.words[i], (unsigned char*)ret);
 						}
 					}
-					else if (GetID((char*)in.words[i]) == 'I') {
+					else if (GetID((char*)in.words[i], str, ret, symbols) == 'I') {
 						while (in.words[i][leng++] != '\0');
 						if (leng > ID_MAXSIZE) {
 							ret[symbols] = '\0';
@@ -746,7 +869,16 @@ namespace FST
 				ret[symbols++] = 'p';
 				continue;
 				break;
-
+			case LEX_READ:
+				LT::Add(lextable, { LEX_READ, str, NULL });
+				ret[symbols++] = LEX_READ;
+				continue;
+				break;
+			case LEX_IF:
+				LT::Add(lextable, { LEX_IF, str, NULL });
+				ret[symbols++] = LEX_IF;
+				continue;
+				break;
 			case LEX_MAIN:
 				for (int i = 0; i < lextable.size; i++) {
 					if (LT::GetEntry(lextable, i).lexema == 'm') {
@@ -772,7 +904,7 @@ namespace FST
 			global.push((char*)"0GLOBAL");
 			int j = 0;
 			int l = -1;
-			char* tmp_literal_name = new char[ID_MAXSIZE];
+			char* tmp_literal_name = new char[20];
 			char* LiteralSTR = (char*)"STR";
 			char* LiteralINT = (char*)"INT";
 			char* LiteralBOOL = (char*)"BOOl";
@@ -781,7 +913,7 @@ namespace FST
 			char tmp_number[10];
 			int h = 0;
 
-			switch (GetID((char*)in.words[i]))
+			switch (GetID((char*)in.words[i], str, ret, symbols))
 			{
 			case 's':
 				l = idtable.size;
@@ -841,7 +973,7 @@ namespace FST
 				l = idtable.size;
 				for (int k = idtable.size - 1; k >= 0; k--) {
 					if (IT::GetEntry(idtable, k).iddatatype == IT::STR && IT::GetEntry(idtable, k).idtype == IT::L &&
-						IT::GetEntry(idtable, k).value.vint == atoi((char*)in.words[i])) {
+						IT::GetEntry(idtable, k).value.vint == parseInteger((char*)in.words[i])) {
 						l = k;
 						break;
 					}
@@ -873,7 +1005,7 @@ namespace FST
 
 					tmp_literal_name[g] = '\0';
 					id++;
-					IT::Add(idtable, { lextable.size - 1, tmp_literal_name , datatype, type, global,atoi((char*)in.words[i])});
+					IT::Add(idtable, { lextable.size - 1, tmp_literal_name , datatype, type, global,parseInteger((char*)in.words[i])});
 				}
 				ret[symbols++] = 'l';
 				
@@ -916,7 +1048,7 @@ namespace FST
 
 					tmp_literal_name[g] = '\0';
 					id++;
-					IT::Add(idtable, { lextable.size - 1, tmp_literal_name , datatype, type, global, strcmp((char*)in.words[i], (char*)"true")? 1:0 });
+					IT::Add(idtable, { lextable.size - 1, tmp_literal_name , datatype, type, global, strcmp((char*)in.words[i], (char*)"true")? 0:1 });
 				}
 				ret[symbols++] = 'l';
 
@@ -948,7 +1080,14 @@ namespace FST
 
 			throw ERROR_THROW_LEX(90, str, in.words[i], (unsigned char*)ret);
 		}
-
+		bool fl = true;
+		for (int i = 0; i < lextable.size; i++) {
+			if (LT::GetEntry(lextable, i).lexema == 'm') {
+				fl = false;
+			}
+		}
+		if (fl)
+			throw ERROR_THROW(98);
 		delete[] ret;
 
 	}

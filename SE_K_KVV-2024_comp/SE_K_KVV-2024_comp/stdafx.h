@@ -11,6 +11,7 @@
 #include <string.h>
 #include <mbstring.h>
 #include <stack>
+#include <queue>
 
 using namespace std;
 
@@ -32,6 +33,8 @@ using namespace std;
 #include "GRB.h"
 #include "MFST.h"
 #include "PLN.h"
+#include "SEM.h"
+#include "GEN.h"
 
 
 
