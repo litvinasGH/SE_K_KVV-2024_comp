@@ -23,3 +23,93 @@
 	STR60GLOBAL BYTE '1234567890', 0
 	STR70GLOBAL BYTE 'контрольный   пример', 0
 	INT80GLOBAL DWORD 0
+;=================== сегмент данных ============================
+
+.data
+	buffer BYTE 256 dup(0)
+	zfi0GLOBAL DWORD ?
+	xMAIN DWORD ?
+	yMAIN DWORD ?
+	zMAIN DWORD ?
+	saMAIN DWORD ?
+	sbMAIN DWORD ?
+	bMAIN DWORD ?
+;=================== сегмент кода ==============================
+
+.code
+
+fi0GLOBAL PROC xfi0GLOBAL : DWORD, yfi0GLOBAL : DWORD
+	push xfi0GLOBAL
+	push xfi0GLOBAL
+	push yfi0GLOBAL
+	pop zfi0GLOBAL
+	push fi0GLOBAL
+	jmp local0
+local0:
+	pop eax
+	ret
+fi0GLOBAL ENDP
+
+main PROC
+call rusL
+	push INT00GLOBAL
+	pop zMAIN
+	pop eax
+	pop ebx
+	mul ebx
+	push eax
+	pop bMAIN
+	pop eax
+	pop ebx
+	mul ebx
+	push eax
+	pop bMAIN
+	push INT30GLOBAL
+	pop xMAIN
+	push INT40GLOBAL
+	pop xMAIN
+	push INT50GLOBAL
+	pop xMAIN
+	pop eax
+	pop ebx
+	mul ebx
+	push eax
+	pop yMAIN
+	push offset STR60GLOBAL
+	pop saMAIN
+	push offset STR60GLOBAL
+	pop sbMAIN
+	push xMAIN
+	push zMAIN
+	call fi0GLOBAL
+	push eax
+	push fi0GLOBAL
+	pop zMAIN
+	push ecx
+	push offset STR70GLOBAL
+	call OutputChar
+	pop ecx
+	pop ecx
+	mov eax, yMAIN
+	cmp eax, 1
+	jz m0
+	jnz m1
+	je m0
+m0:
+	push ecx
+call InputInt
+mov zMAIN, eax
+	pop ecx
+m1:
+	push ecx
+	push zMAIN
+	call OutputInt
+	pop ecx
+	pop ecx
+	push fi0GLOBAL
+		jmp theend
+theend:
+	call ExitProcess
+main ENDP
+end main
+;=============================================================
