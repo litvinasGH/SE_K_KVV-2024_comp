@@ -1,7 +1,7 @@
 #include "EXE.h"
 #include <Windows.h>
 #include<iostream>
-#include<string>
+#include <string>
 #include <codecvt>
 
 
@@ -14,7 +14,7 @@ void compileAndRunAssemblyFile(wchar_t* asmFileName) {
 
     std::wstring executeCommand = objFileName.substr(0, objFileName.find_last_of('.')) + L".exe";
 
-    std::wstring launch = L"/k \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && " + masmCommand + L" && " + linkCommand + L"&& cls && echo Консольный вывод кода: &&" + executeCommand + L" && pause && exit";
+    std::wstring launch = L"/k \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && " + masmCommand + L" && " + linkCommand + L"&& cls &&" + executeCommand + L" && pause && exit";
 
 
 

@@ -1,4 +1,31 @@
-﻿  standartLib.cpp
-D:\git\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\standartLib\standartLib.cpp(31,35): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
-D:\git\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\standartLib\standartLib.cpp(33,29): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
-  standartLib.vcxproj -> D:\git\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\Debug\standartLib.lib
+﻿Сборка начата 18.12.2024 19:07:49.
+Уровень детализации журнала: Normal.     1>Проект "C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\standartLib\standartLib.vcxproj" в узле 2 (целевые объекты Build).
+     1>PrepareForBuild:
+         Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+       InitializeBuildStatus:
+         Создание "Debug\standartLib.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "Debug\standartLib.tlog\unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\HostX86\x86\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"Debug\\" /Fd"C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\Debug\standartLib.pdb" /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt standartLib.cpp
+         standartLib.cpp
+     1>C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\standartLib\standartLib.cpp(31,35): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
+     1>C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\standartLib\standartLib.cpp(33,29): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
+       Lib:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\HostX86\x86\Lib.exe /OUT:"C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\Debug\standartLib.lib" /NOLOGO /MACHINE:X86 Debug\standartLib.obj
+         standartLib.vcxproj -> C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\Debug\standartLib.lib
+       FinalizeBuildStatus:
+         Файл "Debug\standartLib.tlog\unsuccessfulbuild" удаляется.
+         Обращение к "Debug\standartLib.tlog\standartLib.lastbuildstate".
+     1>Сборка проекта "C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\standartLib\standartLib.vcxproj" завершена (целевые объекты Build).
+
+Сборка успешно завершена.
+
+       "C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\standartLib\standartLib.vcxproj" (целевой объект Build ) (1) ->
+       (Целевой объект ClCompile) -> 
+         C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\standartLib\standartLib.cpp(31,35): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
+         C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\standartLib\standartLib.cpp(33,29): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
+
+    Предупреждений: 2
+    Ошибок: 0
+
+Прошло времени 00:00:02.10

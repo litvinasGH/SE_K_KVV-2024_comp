@@ -17,6 +17,8 @@ namespace CodeGen
 		out << "\tEXTRN OutputInt: proc\n";
 		out << "\tEXTRN OutputChar: proc\n";
 		out << "\tEXTRN InputInt: proc\n";
+		out << "\tEXTRN strEq: proc\n";
+		out << "\tEXTRN findWord: proc\n";
 		out << "\n.stack 4096\n";
 	}
 	void Const(LT::lexAndIdTable& lex, Out::OUT& log)
@@ -31,10 +33,12 @@ namespace CodeGen
 				{
 					out << " BYTE " << lex.idTable.table[i].value.vstr.str << ", 0\n";
 				}
-				else
+				else if (lex.idTable.table[i].iddatatype == IT::INT)
 				{
 					out << " DWORD " << lex.idTable.table[i].value.vint << std::endl;
 				}
+				else
+					out << " BYTE " << lex.idTable.table[i].value.vbool << std::endl;
 
 			}
 		}
@@ -127,6 +131,7 @@ namespace CodeGen
 					{
 						if (idT.table[lexT.table[i].idxTI].idtype == IT::F)
 						{
+							int fuc = i;
 							if (idT.table[lexT.table[i].idxTI].idtype == IT::F) {
 								countParm = (char)lexT.table[i + 1].lexema - '0';
 
@@ -141,20 +146,25 @@ namespace CodeGen
 									stk.pop();
 								}
 
-								out << "\tcall " << idT.table[lexT.table[i - countParm - 1].idxTI].id << "\n\tpush eax\n";
+								out << "\tcall " << idT.table[lexT.table[fuc].idxTI].id << "\n\tpush eax\n";
 								flag_callfunc = false;
 
 
 
 							}
 							else if (idT.table[lexT.table[i].idxTI].idtype == IT::V) {
-								if (idT.table[lexT.table[i].idxTI].iddatatype == IT::INT || idT.table[lexT.table[i].idxTI].iddatatype == IT::BOOL)
+								if (idT.table[lexT.table[i].idxTI].iddatatype == IT::INT)
 								{
 									out << "\tpush " << idT.table[lexT.table[i].idxTI].id << "\n";
 									stk.push((unsigned char*)idT.table[lexT.table[i].idxTI].id);
 									break;
 								}
-								if (idT.table[lexT.table[i].idxTI].iddatatype == IT::STR)
+								else if (idT.table[lexT.table[i].idxTI].iddatatype == IT::BOOL) {
+									out << "\tmov, al " << idT.table[lexT.table[i].idxTI].id << "\n\tpush ax\n";
+									stk.push((unsigned char*)idT.table[lexT.table[i].idxTI].id);
+									break;
+								}
+								else if (idT.table[lexT.table[i].idxTI].iddatatype == IT::STR)
 								{
 									char* s;
 									if (idT.table[lexT.table[i].idxTI].idtype == IT::L)
@@ -176,10 +186,16 @@ namespace CodeGen
 									break;
 								}
 							}
-						}
+						}	
 						if (idT.table[lexT.table[i].idxTI].iddatatype == IT::INT)
 						{
-							out << "\tpush " << idT.table[lexT.table[i].idxTI].id << "\n";
+							out << "\npush " << idT.table[lexT.table[i].idxTI].id << "\n";
+							stk.push((unsigned char*)idT.table[lexT.table[i].idxTI].id);
+							break;
+						}
+						if (idT.table[lexT.table[i].idxTI].iddatatype == IT::BOOL)
+						{
+							out << "\tmov al, " << idT.table[lexT.table[i].idxTI].id << "\n\tpush ax\n";
 							stk.push((unsigned char*)idT.table[lexT.table[i].idxTI].id);
 							break;
 						}
@@ -205,25 +221,21 @@ namespace CodeGen
 							break;
 						}
 					}
-					case '*':
+					case '&':
 						out << "\tpop eax\n\tpop ebx\n";
-						out << "\tmul ebx\n\tpush eax\n";
+						out << "\tand eax, ebx\n\tpush eax\n";
 						break;
-					case '+':
+					case '|':
 						out << "\tpop eax\n\tpop ebx\n";
-						out << "\tadd eax, ebx\n\tpush eax\n";
+						out << "\tor eax, ebx\n\tpush eax\n";
 						break;
-					case '-':
+					case '^':
 						out << "\tpop ebx\n\tpop eax\n";
-						out << "\tsub eax, ebx\n\tpush eax\n";
+						out << "\txor eax, ebx\n\tpush eax\n";
 						break;
-					case '/':
-						out << "\tpop ebx\n\tpop eax\n";
-						out << "\tcdq\n\tidiv ebx\n\tpush eax\n";
-						break;
-					case '%':
-						out << "\tpop ebx\n\tpop eax\n";
-						out << "\tcdq\n\tidiv ebx\n\tpush edx\n";
+					case '!':
+						out << "\tpop eax\n";
+						out << "\tnot eax\n\tpush eax\n";
 						break;
 
 					}
@@ -235,11 +247,14 @@ namespace CodeGen
 			case 'i':
 			{
 				if (idT.table[lexT.table[i].idxTI].idtype == IT::F) {
+					int fuc = i;
 					countParm = (char)lexT.table[i + 1].lexema - '0';
 					for (int j = 1; j <= countParm; j++)
 					{
 						if (idT.table[lexT.table[i - j].idxTI].iddatatype == IT::INT)
 							out << "\tpush " << idT.table[lexT.table[i - j].idxTI].id << "\n";
+						else if (idT.table[lexT.table[i - j].idxTI].iddatatype == IT::BOOL)
+							out << "\tmov al, " << idT.table[lexT.table[i - j].idxTI].id << "\n\tpush ax\n";
 						else
 						{
 							if (idT.table[lexT.table[i - j].idxTI].idtype == IT::L)
@@ -248,7 +263,7 @@ namespace CodeGen
 								out << "\tpush " << idT.table[lexT.table[i - j].idxTI].id << "\n";
 						}
 					}
-					out << "\tcall " << idT.table[lexT.table[i - countParm - 1].idxTI].id << "\n";
+					out << "\tcall " << idT.table[lexT.table[fuc].idxTI].id << "\n";
 				}
 				break;
 			}
@@ -321,8 +336,8 @@ namespace CodeGen
 				{
 					if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::BOOL && lexT.table[i + 2].lexema == LEX_RIGHTTHESIS)
 					{
-						out << "\tmov eax, " << idT.table[lexT.table[i + 1].idxTI].id << "\n";
-						out << "\tcmp eax, 1\n";
+						out << "\tmov al, " << idT.table[lexT.table[i + 1].idxTI].id << "\n";
+						out << "\tcmp al, 1\n";
 						out << "\tjz m" << num_of_points << "\n";
 						out << "\tjnz m" << num_of_points + 1 << "\n";
 					}

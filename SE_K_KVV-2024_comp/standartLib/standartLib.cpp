@@ -15,7 +15,7 @@ extern "C" {
         return true;
     }
 
-    char* findWord(char* a, int n) {
+    char* findWord(char* a, unsigned int n) {
         int j = 0;
         char* result = new char[255];
         int sym = 0;
@@ -37,7 +37,7 @@ extern "C" {
         return result;
     }
 
-    void OutputInt(int i) {
+    void OutputInt(unsigned int i) {
         std::cout << i << std::endl;
     }
 
@@ -51,8 +51,8 @@ extern "C" {
         std::cout << std::endl;
     }
 
-    int InputInt() {
-        int r;
+    unsigned int InputInt() {
+        unsigned int r;
         std::cin >> r;
         return r;
     }

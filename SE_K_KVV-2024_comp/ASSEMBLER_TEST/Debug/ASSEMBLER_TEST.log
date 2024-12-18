@@ -1,5 +1,37 @@
-﻿  Assembling ..\Debug\in.kvv.asm...
-..\Debug\in.kvv.asm(46): error A2006: undefined symbol : strEq
-..\Debug\in.kvv.asm(84): error A2006: undefined symbol : strEq
-..\Debug\in.kvv.asm(109): error A2006: undefined symbol : strEq
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: выход из команды "ml.exe /c /nologo /Zi /Fo"Debug\in.kvv.obj" /Fl"Debug\\" /W3 /errorReport:prompt  /Ta..\Debug\in.kvv.asm" с кодом "1".
+﻿Сборка начата 18.12.2024 19:19:55.
+Уровень детализации журнала: Normal.     1>Проект "C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\ASSEMBLER_TEST\ASSEMBLER_TEST.vcxproj" в узле 2 (целевые объекты Build).
+     1>PrepareForBuild:
+         Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+       InitializeBuildStatus:
+         Обращение к "Debug\ASSEMBLER_TEST.tlog\unsuccessfulbuild".
+       _MASM:
+         Assembling ..\Debug\in.kvv.asm...
+         cmd.exe /C "C:\Users\user\AppData\Local\Temp\tmp904327b66fe5493494ee779dcd1e6e50.cmd"
+         ml.exe /c /nologo /Zi /Fo"Debug\in.kvv.obj" /Fl"Debug\\" /W3 /errorReport:prompt  /Ta..\Debug\in.kvv.asm
+     1>..\Debug\in.kvv.asm(58): error A2070: invalid instruction operands
+     1>..\Debug\in.kvv.asm(73): error A2149: byte register cannot be first operand
+     1>..\Debug\in.kvv.asm(77): error A2149: byte register cannot be first operand
+     1>..\Debug\in.kvv.asm(90): error A2149: byte register cannot be first operand
+     1>..\Debug\in.kvv.asm(74): error A2022: instruction operands must be the same size
+     1>..\Debug\in.kvv.asm(78): error A2022: instruction operands must be the same size
+     1>..\Debug\in.kvv.asm(91): error A2022: instruction operands must be the same size
+     1>C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: выход из команды "ml.exe /c /nologo /Zi /Fo"Debug\in.kvv.obj" /Fl"Debug\\" /W3 /errorReport:prompt  /Ta..\Debug\in.kvv.asm" с кодом "1".
+     1>Сборка проекта "C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\ASSEMBLER_TEST\ASSEMBLER_TEST.vcxproj" завершена (целевые объекты Build) с ошибкой.
+
+Ошибка сборки.
+
+       "C:\Users\user\Documents\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\ASSEMBLER_TEST\ASSEMBLER_TEST.vcxproj" (целевой объект Build ) (1) ->
+       (Целевой объект _MASM) -> 
+         ..\Debug\in.kvv.asm(58): error A2070: invalid instruction operands
+         ..\Debug\in.kvv.asm(73): error A2149: byte register cannot be first operand
+         ..\Debug\in.kvv.asm(77): error A2149: byte register cannot be first operand
+         ..\Debug\in.kvv.asm(90): error A2149: byte register cannot be first operand
+         ..\Debug\in.kvv.asm(74): error A2022: instruction operands must be the same size
+         ..\Debug\in.kvv.asm(78): error A2022: instruction operands must be the same size
+         ..\Debug\in.kvv.asm(91): error A2022: instruction operands must be the same size
+         C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: выход из команды "ml.exe /c /nologo /Zi /Fo"Debug\in.kvv.obj" /Fl"Debug\\" /W3 /errorReport:prompt  /Ta..\Debug\in.kvv.asm" с кодом "1".
+
+    Предупреждений: 0
+    Ошибок: 8
+
+Прошло времени 00:00:00.63

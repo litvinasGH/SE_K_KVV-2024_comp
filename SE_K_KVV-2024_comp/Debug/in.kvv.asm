@@ -10,13 +10,15 @@
 	EXTRN OutputInt: proc
 	EXTRN OutputChar: proc
 	EXTRN InputInt: proc
+	EXTRN strEq: proc
+	EXTRN findWord: proc
 
 .stack 4096
 ;=================== сегмент констант =========================
 .const
 	INT00GLOBAL DWORD 45
-	BOOl10GLOBAL DWORD 1
-	BOOl20GLOBAL DWORD 0
+	BOOl10GLOBAL BYTE 1
+	BOOl20GLOBAL BYTE 0
 	INT30GLOBAL DWORD 76468
 	INT40GLOBAL DWORD 1
 	INT50GLOBAL DWORD 39
@@ -39,11 +41,22 @@
 .code
 
 fi0GLOBAL PROC xfi0GLOBAL : DWORD, yfi0GLOBAL : DWORD
-	push xfi0GLOBAL
-	push xfi0GLOBAL
-	push yfi0GLOBAL
+
+push xfi0GLOBAL
+
+push xfi0GLOBAL
+
+push yfi0GLOBAL
+	pop eax
+	pop ebx
+	or eax, ebx
+	push eax
+	pop eax
+	pop ebx
+	and eax, ebx
+	push eax
 	pop zfi0GLOBAL
-	push fi0GLOBAL
+	push strEq
 	jmp local0
 local0:
 	pop eax
@@ -52,61 +65,68 @@ fi0GLOBAL ENDP
 
 main PROC
 call rusL
-	push INT00GLOBAL
+
+push INT00GLOBAL
 	pop zMAIN
-	pop eax
-	pop ebx
-	mul ebx
-	push eax
+	mov al, BOOl10GLOBAL
+	push ax
 	pop bMAIN
-	pop eax
-	pop ebx
-	mul ebx
-	push eax
+	mov al, BOOl20GLOBAL
+	push ax
 	pop bMAIN
-	push INT30GLOBAL
+
+push INT30GLOBAL
 	pop xMAIN
-	push INT40GLOBAL
+
+push INT40GLOBAL
 	pop xMAIN
-	push INT50GLOBAL
+
+push INT50GLOBAL
 	pop xMAIN
-	pop eax
-	pop ebx
-	mul ebx
-	push eax
+	mov al, BOOl10GLOBAL
+	push ax
 	pop yMAIN
 	push offset STR60GLOBAL
 	pop saMAIN
 	push offset STR60GLOBAL
 	pop sbMAIN
-	push xMAIN
-	push zMAIN
+
+push xMAIN
+
+push zMAIN
 	call fi0GLOBAL
 	push eax
-	push fi0GLOBAL
+
+push fi0GLOBAL
 	pop zMAIN
 	push ecx
 	push offset STR70GLOBAL
 	call OutputChar
 	pop ecx
 	pop ecx
-	mov eax, BOOl10GLOBAL
-	cmp eax, 1
-	jz m0
-	jnz m1
-	je m0
-m0:
 	push ecx
 call InputInt
 mov zMAIN, eax
 	pop ecx
-m1:
+	mov al, BOOl10GLOBAL
+	cmp al, 1
+	jz m0
+	jnz m1
+	je m0
+m0:
+
+push zMAIN
+	pop eax
+	not eax
+	push eax
+	pop zMAIN
 	push ecx
 	push zMAIN
 	call OutputInt
 	pop ecx
 	pop ecx
-	push fi0GLOBAL
+m1:
+	push strEq
 		jmp theend
 theend:
 	call ExitProcess
