@@ -125,10 +125,15 @@ int _tmain(int argc, _TCHAR* argv[])
 		LT::lexAndIdTable li = { lextable, idtable };
 		CodeGen::Generation(li, out);
 
+
+
 		IT::Delete(idtable);
 		LT::Delete(lextable);
 		In::Delete(in);
+		
 		Out::Close(out);
+		compileAndRunAssemblyFile(parm.out);
+
 	}
 
 	catch (Error::ERROR e)

@@ -618,6 +618,16 @@ namespace FST
 		str = 0;
 		stack<char*> funcID;
 		funcID.push((char*)"0GLOBAL");
+		/*IT::Add(idtable, { -1, (char*)"strEq", IT::BOOL, IT::F, funcID });
+		funcID.push((char*)"strEq");
+		IT::Add(idtable, { -1, (char*)"a", IT::STR, IT::P, funcID });
+		IT::Add(idtable, { -1, (char*)"b", IT::STR, IT::P, funcID });
+		funcID.pop();
+		IT::Add(idtable, { -1, (char*)"findWord", IT::STR, IT::F, funcID });
+		funcID.push((char*)"findWord");
+		IT::Add(idtable, { -1, (char*)"a", IT::STR, IT::P, funcID });
+		IT::Add(idtable, { -1, (char*)"n", IT::INT, IT::P, funcID });
+		funcID.pop();*/
 		bool param = false, func = false;
 		for (int i = 0; i < in.count_words - 1; i++) {
 			if (in.words[i][0] == (unsigned char)' ' || in.words[i][0] == (unsigned char)'\0') {

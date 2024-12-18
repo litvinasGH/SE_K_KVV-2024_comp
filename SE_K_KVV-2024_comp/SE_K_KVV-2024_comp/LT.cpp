@@ -28,6 +28,10 @@ namespace LT
 	}
 	Entry GetEntry(LexTable& lextable, int n)
 	{
+		if (n == -1) {
+			Entry r = { '$', -1, -1 };
+			return r;
+		}
 		if (n > LT_MAXSIZE || n < 0)
 		{
 			throw ERROR_THROW(13);

@@ -1,2 +1,5 @@
 ﻿  Assembling ..\Debug\in.kvv.asm...
-  ASSEMBLER_TEST.vcxproj -> D:\git\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\Debug\ASSEMBLER_TEST.exe
+..\Debug\in.kvv.asm(46): error A2006: undefined symbol : strEq
+..\Debug\in.kvv.asm(84): error A2006: undefined symbol : strEq
+..\Debug\in.kvv.asm(109): error A2006: undefined symbol : strEq
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: выход из команды "ml.exe /c /nologo /Zi /Fo"Debug\in.kvv.obj" /Fl"Debug\\" /W3 /errorReport:prompt  /Ta..\Debug\in.kvv.asm" с кодом "1".

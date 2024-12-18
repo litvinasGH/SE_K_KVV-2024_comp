@@ -374,7 +374,8 @@ namespace CodeGen
 	void Generation(LT::lexAndIdTable& lex, Out::OUT& log)
 	{
 		for (int i = 0; i < lex.idTable.size; i++) {
-			strcat_s(lex.idTable.table[i].id, 20, lex.idTable.table[i].funcID.top());
+			if(lex.idTable.table[i].idxfirstLE != -1)
+				strcat_s(lex.idTable.table[i].id, 20, lex.idTable.table[i].funcID.top());
 		}
 
 		out << ";========================= шапка ==============================\n";

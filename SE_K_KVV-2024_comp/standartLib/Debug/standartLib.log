@@ -1,2 +1,4 @@
 ﻿  standartLib.cpp
+D:\git\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\standartLib\standartLib.cpp(31,35): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
+D:\git\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\standartLib\standartLib.cpp(33,29): warning C4553: "==": результат выражения не используется; вы хотели использовать "="?
   standartLib.vcxproj -> D:\git\SE_K_KVV-2024_comp\SE_K_KVV-2024_comp\Debug\standartLib.lib

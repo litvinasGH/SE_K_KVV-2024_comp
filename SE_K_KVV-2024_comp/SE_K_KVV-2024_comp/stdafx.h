@@ -35,6 +35,7 @@ using namespace std;
 #include "PLN.h"
 #include "SEM.h"
 #include "GEN.h"
+#include "EXE.h"
 
 
 
