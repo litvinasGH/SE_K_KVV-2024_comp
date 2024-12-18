@@ -11,7 +11,7 @@ namespace CodeGen
 		out << "\t.model flat, stdcall\n";
 		out << "\tincludelib libucrt.lib\n";
 		out << "\tincludelib kernel32.lib\n";
-		out << "\tincludelib ../Debug/standartLib.lib\n";
+		out << "\tincludelib standartLib.lib\n";
 		out << "\tExitProcess PROTO : DWORD\n\n";
 		out << "\tEXTRN rusL: proc\n";
 		out << "\tEXTRN OutputInt: proc\n";

@@ -1,6 +1,6 @@
     integer function fi(integer x, integer y)
 {
-declare integer z;//Я люлю коменты
+declare integer z;//я люлю коменты
 z= x   &   (x|y);
 return z;
    }    
@@ -20,11 +20,12 @@ x = 047;
 y = true;
 sa = '1234567890';
 sb = '1234567890';
-z = fi(x,z);
+z = fi(x,z, 8);//кол-во
 write 'контрольный   пример';
-if (y){
-    read z;
+read z;
+if (true){
+    z = !z;
+    write z;
 }
-write z;
 return 0;
 }
