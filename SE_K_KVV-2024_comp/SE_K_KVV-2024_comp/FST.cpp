@@ -1016,7 +1016,7 @@ namespace FST
 
 					tmp_literal_name[g] = '\0';
 					id++;
-					IT::Add(idtable, { lextable.size - 1, tmp_literal_name , datatype, type, global,parseInteger((char*)in.words[i])});
+					IT::Add(idtable, { lextable.size - 1, tmp_literal_name , datatype, type, global, parseInteger((char*)in.words[i])});
 				}
 				ret[symbols++] = 'l';
 				

@@ -24,7 +24,7 @@ void SemAnl(LT::LexTable lextable, IT::IdTable idtable)
 						else
 							parms.pop();
 
-						if (parms.empty() && lextable.table[i = 1].lexema != ')') {
+						if (parms.empty() && lextable.table[i + 1].lexema != ')') {
 							throw ERROR_THROW_SEM(140, lextable.table[e].sn)
 						}
 					}
