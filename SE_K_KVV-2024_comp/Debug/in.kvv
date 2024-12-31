@@ -13,7 +13,7 @@ main
     b = false;
     x = 047;
     sa = '1234567890';
-    z = fi(x,z);
+    z = fi(x,z) & 1;
     write 'контрольный    пример';
     read z;
     if (true){

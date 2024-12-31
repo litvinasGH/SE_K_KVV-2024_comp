@@ -32,7 +32,7 @@ namespace LT
 		char lexema;
 		int sn;
 		int idxTI;
-		IT::IDDATATYPE datatype;
+		int countofparm;
 	};
 	struct LexTable
 	{

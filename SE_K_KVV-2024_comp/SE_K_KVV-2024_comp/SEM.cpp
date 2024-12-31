@@ -16,6 +16,7 @@ void SemAnl(LT::LexTable lextable, IT::IdTable idtable)
 						break;
 					}
 				}
+				int cparm = parms.size();
 				for (i += 2; lextable.table[i].lexema != ')'; i++) {
 					if ((lextable.table[i].lexema == 'i' || lextable.table[i].lexema == 'l')) {
 						if (parms.front().iddatatype != idtable.table[lextable.table[i].idxTI].iddatatype) {
@@ -32,6 +33,7 @@ void SemAnl(LT::LexTable lextable, IT::IdTable idtable)
 				if (!parms.empty()) {
 					throw ERROR_THROW_SEM(140, lextable.table[e].sn)
 				}
+				lextable.table[e].countofparm = cparm;
 			}
 			else if (idtable.table[lextable.table[i].idxTI].idtype == IT::V) {
 				IT::IDDATATYPE dt = idtable.table[lextable.table[i].idxTI].iddatatype;

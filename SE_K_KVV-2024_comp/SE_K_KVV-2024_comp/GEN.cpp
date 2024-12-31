@@ -133,7 +133,7 @@ namespace CodeGen
 						{
 							int fuc = i;
 							if (idT.table[lexT.table[i].idxTI].idtype == IT::F) {
-								countParm = (char)lexT.table[i + 1].lexema - '0';
+								countParm = lexT.table[i].countofparm;
 
 								for (int j = 1; j <= countParm; j++)
 								{
@@ -248,7 +248,7 @@ namespace CodeGen
 			{
 				if (idT.table[lexT.table[i].idxTI].idtype == IT::F) {
 					int fuc = i;
-					countParm = (char)lexT.table[i + 1].lexema - '0';
+					countParm = lexT.table[i + 1].countofparm;
 					for (int j = 1; j <= countParm; j++)
 					{
 						if (idT.table[lexT.table[i - j].idxTI].iddatatype == IT::INT)

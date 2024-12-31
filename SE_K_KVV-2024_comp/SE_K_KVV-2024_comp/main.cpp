@@ -104,11 +104,11 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		
 
-		SemAnl(lextable, idtable);
-		if (parm.deb) {
-			std::cout << " Сем анализ пройден" << std::endl;
-		}
-		*log.stream << " Сем анализ пройден" << std::endl;
+		//SemAnl(lextable, idtable);
+		//if (parm.deb) {
+		//	std::cout << " Сем анализ пройден" << std::endl;
+		//}
+		//*log.stream << " Сем анализ пройден" << std::endl;
 
 		PLN::findN(lextable, idtable);
 		*log.stream << " польская запись построена" << std::endl;

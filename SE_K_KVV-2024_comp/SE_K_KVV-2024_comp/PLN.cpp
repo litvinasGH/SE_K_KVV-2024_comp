@@ -14,7 +14,7 @@ namespace PLN {
 
     bool PolishNotation(int lextable_pos, LT::LexTable& lextable, IT::IdTable& idtable) {
 
-        std::map<char, int> precedence = { {'!', 1}, {'&', 2}, {'|', 3}, {'^', 2} };
+        std::map<char, int> precedence = { {'i', 0}, { '!', 1 }, {'&', 2}, {'|', 3}, {'^', 2}};
         std::set<char> left_associative = { '!', '&', '|', '^' };
 
         LT::LexTable expression = LT::Create(LEN);
@@ -55,8 +55,9 @@ namespace PLN {
             else if (precedence.find(expression.table[i].lexema) != precedence.end()) {
                 LT::Entry op = expression.table[i];
                 while (!stack.empty() && stack.top().lexema != '(' &&
-                    (precedence[stack.top().lexema] > precedence[op.lexema] ||
-                        (precedence[stack.top().lexema] == precedence[op.lexema] && left_associative.count(op.lexema)))) {
+                    (precedence[stack.top().lexema] < precedence[op.lexema] ||
+                        (precedence[stack.top().lexema] == precedence[op.lexema] && 
+                            (left_associative.count(op.lexema) || (op.lexema = 'i' && idtable.table[op.idxTI].idtype == IT::F))))) {
                     LT::Add(output, stack.top());
                     stack.pop();
                 }

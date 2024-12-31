@@ -20,9 +20,10 @@
 	BOOl10GLOBAL BYTE 0
 	INT20GLOBAL DWORD 39
 	STR30GLOBAL BYTE '1234567890', 0
-	STR40GLOBAL BYTE 'контрольный    пример', 0
-	BOOl50GLOBAL BYTE 1
-	INT60GLOBAL DWORD 0
+	INT40GLOBAL DWORD 1
+	STR50GLOBAL BYTE 'контрольный    пример', 0
+	BOOl60GLOBAL BYTE 1
+	INT70GLOBAL DWORD 0
 ;=================== сегмент данных ============================
 
 .data
@@ -80,9 +81,15 @@ push zMAIN
 	push eax
 
 push fi0GLOBAL
+
+push INT40GLOBAL
+	pop eax
+	pop ebx
+	and eax, ebx
+	push eax
 	pop zMAIN
 	push ecx
-	push offset STR40GLOBAL
+	push offset STR50GLOBAL
 	call OutputChar
 	pop ecx
 	pop ecx
@@ -90,7 +97,7 @@ push fi0GLOBAL
 call InputInt
 mov zMAIN, eax
 	pop ecx
-	mov al, BOOl50GLOBAL
+	mov al, BOOl60GLOBAL
 	cmp al, 1
 	jz m0
 	jnz m1
